@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fichas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Sexo</th>
+      <th>Telefono</th>
+      <th>Direccion</th>
+      <th>Comuna</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fichas.each do |ficha| %>
+      <tr>
+        <td><%= ficha.nombre %></td>
+        <td><%= ficha.sexo %></td>
+        <td><%= ficha.telefono %></td>
+        <td><%= ficha.direccion %></td>
+        <td><%= ficha.comuna %></td>
+        <td><%= ficha.email %></td>
+        <td><%= link_to 'Show', ficha %></td>
+        <td><%= link_to 'Edit', edit_ficha_path(ficha) %></td>
+        <td><%= link_to 'Destroy', ficha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ficha', new_ficha_path %>

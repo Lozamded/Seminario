@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @ficha.nombre %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @ficha.sexo %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @ficha.telefono %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @ficha.direccion %>
+</p>
+
+<p>
+  <strong>Comuna:</strong>
+  <%= @ficha.comuna %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @ficha.email %>
+</p>
+
+<%= link_to 'Edit', edit_ficha_path(@ficha) %> |
+<%= link_to 'Back', fichas_path %>
