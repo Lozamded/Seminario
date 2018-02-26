@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gatos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Numero serie</th>
+      <th>Propietario</th>
+      <th>Raza</th>
+      <th>Peso</th>
+      <th>Tamaño</th>
+      <th>Senas</th>
+      <th>Comentario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gatos.each do |gato| %>
+      <tr>
+        <td><%= gato.nombre %></td>
+        <td><%= gato.numero_serie %></td>
+        <td><%= gato.propietario %></td>
+        <td><%= gato.raza %></td>
+        <td><%= gato.peso %></td>
+        <td><%= gato.tamaño %></td>
+        <td><%= gato.senas %></td>
+        <td><%= gato.comentario %></td>
+        <td><%= link_to 'Show', gato %></td>
+        <td><%= link_to 'Edit', edit_gato_path(gato) %></td>
+        <td><%= link_to 'Destroy', gato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gato', new_gato_path %>

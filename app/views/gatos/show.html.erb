@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @gato.nombre %>
+</p>
+
+<p>
+  <strong>Numero serie:</strong>
+  <%= @gato.numero_serie %>
+</p>
+
+<p>
+  <strong>Propietario:</strong>
+  <%= @gato.propietario %>
+</p>
+
+<p>
+  <strong>Raza:</strong>
+  <%= @gato.raza %>
+</p>
+
+<p>
+  <strong>Peso:</strong>
+  <%= @gato.peso %>
+</p>
+
+<p>
+  <strong>Tamaño:</strong>
+  <%= @gato.tamaño %>
+</p>
+
+<p>
+  <strong>Senas:</strong>
+  <%= @gato.senas %>
+</p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @gato.comentario %>
+</p>
+
+<%= link_to 'Edit', edit_gato_path(@gato) %> |
+<%= link_to 'Back', gatos_path %>

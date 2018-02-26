@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  numero_serie: 
+  propietario: MyString
+  raza: MyString
+  peso: 
+  tamaño: MyString
+  senas: MyText
+  comentario: MyText
+
+two:
+  nombre: MyString
+  numero_serie: 
+  propietario: MyString
+  raza: MyString
+  peso: 
+  tamaño: MyString
+  senas: MyText
+  comentario: MyText

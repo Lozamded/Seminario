@@ -1,0 +1,57 @@
+<%= form_with(model: perro, local: true) do |form| %>
+  <% if perro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(perro.errors.count, "error") %> prohibited this perro from being saved:</h2>
+
+      <ul>
+      <% perro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :perro_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero_serie %>
+    <%= form.text_field :numero_serie, id: :perro_numero_serie %>
+  </div>
+
+  <div class="field">
+    <%= form.label :propietario %>
+    <%= form.text_field :propietario, id: :perro_propietario %>
+  </div>
+
+  <div class="field">
+    <%= form.label :raza %>
+    <%= form.text_field :raza, id: :perro_raza %>
+  </div>
+
+  <div class="field">
+    <%= form.label :peso %>
+    <%= form.text_field :peso, id: :perro_peso %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tamaño %>
+    <%= form.text_field :tamaño, id: :perro_tamaño %>
+  </div>
+
+  <div class="field">
+    <%= form.label :senas %>
+    <%= form.text_area :senas, id: :perro_senas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comentario %>
+    <%= form.text_area :comentario, id: :perro_comentario %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

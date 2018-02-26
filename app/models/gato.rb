@@ -1,0 +1,2 @@
+class Gato < ApplicationRecord
+end
