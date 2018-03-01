@@ -1,4 +1,4 @@
-<%= form_with(model: ficha, local: true) do |form| %>
+<%= form_with(model: ficha, local: true) do |f| %>
   <% if ficha.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ficha.errors.count, "error") %> prohibited this ficha from being saved:</h2>
@@ -11,37 +11,86 @@
     </div>
   <% end %>
 
+  <h2>Persona:</h2><br>
+
   <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre, id: :ficha_nombre %>
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre, id: :ficha_nombre %>
   </div>
 
   <div class="field">
-    <%= form.label :sexo %>
-    <%= form.text_field :sexo, id: :ficha_sexo %>
+    <%= f.label :sexo %>
+    <%= f.select :sexo, ['Hombre','Mujer'] %>
+  </div>
+
+  <div class="tipo">
+    <%= f.label :tipo %>
+    <%= f.select :tipo, ['Veterinario Stuka','Veterinario asistente','Oyente','Organización'], {include_blank: "Seleccione"} %>
   </div>
 
   <div class="field">
-    <%= form.label :telefono %>
-    <%= form.text_field :telefono, id: :ficha_telefono %>
+    <%= f.label :telefono %>
+    <%= f.phone_field :telefono, id: :ficha_telefono %>
   </div>
 
   <div class="field">
-    <%= form.label :direccion %>
-    <%= form.text_field :direccion, id: :ficha_direccion %>
+    <%= f.label :direccion %>
+    <%= f.text_field :direccion, id: :ficha_direccion %>
   </div>
 
   <div class="field">
-    <%= form.label :comuna %>
-    <%= form.text_field :comuna, id: :ficha_comuna %>
+    <%= f.label :comuna %>
+    <%= f.text_field :comuna, id: :ficha_comuna %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :ficha_email %>
+    <%= f.label :email %>
+    <%= f.email_field :email, id: :ficha_email %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <h2>Animales:</h2><br>
+  
+  <h3><strong>Perros</strong></h3><br>
+
+   <div id="perros" >
+    <div class="perros-fields">
+      <%= f.fields_for :perros do |perro| %>
+        <%= render "perros_fields", f: perro %>
+      <% end %>
+    </div>
+  </div>
+
+  <strong>
+    <div class="links">
+      <%= link_to_add_association 'Añadir otro PERRO', f, :perros,
+      'data-association-insertion-node' =>  '.perros-fields',
+      'data-association-insertion-method' => 'append', :class => 'btn_regular',
+      partial: 'perros_fields' %>
+    </div>
+  </strong><br>
+
+  <br>
+  <h3><strong>Gatos</strong></h3><br>
+
+    <div id="gatos" >
+      <div class="gatos-fields">
+        <%= f.fields_for :gatos do |gato| %>
+          <%= render "gatos_fields", f: gato %>
+        <% end %>
+      </div>
+    </div>
+
+    <strong>
+      <div class="links">
+        <%= link_to_add_association 'Añadir otro GATO', f, :gatos,
+        'data-association-insertion-node' =>  '.gatos-fields',
+        'data-association-insertion-method' => 'append', :class => 'btn_regular',
+        partial: 'gatos_fields' %>
+      </div>
+    </strong><br>
+  
+
+  <div class="actions"><br><br><br>
+    <%= f.submit %> 
   </div>
 <% end %>

@@ -17,7 +17,7 @@ class GatosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create gato" do
     assert_difference('Gato.count') do
-      post gatos_url, params: { gato: { comentario: @gato.comentario, nombre: @gato.nombre, numero_serie: @gato.numero_serie, peso: @gato.peso, propietario: @gato.propietario, raza: @gato.raza, senas: @gato.senas, tamaño: @gato.tamaño } }
+      post gatos_url, params: { gato: { agresividad: @gato.agresividad, chip: @gato.chip, color: @gato.color, comentario: @gato.comentario, edad: @gato.edad, fiicha_id: @gato.fiicha_id, nombre: @gato.nombre, numero_chip: @gato.numero_chip, peso: @gato.peso, porte: @gato.porte, raza: @gato.raza, senas: @gato.senas, sexo: @gato.sexo } }
     end
 
     assert_redirected_to gato_url(Gato.last)
@@ -34,7 +34,7 @@ class GatosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update gato" do
-    patch gato_url(@gato), params: { gato: { comentario: @gato.comentario, nombre: @gato.nombre, numero_serie: @gato.numero_serie, peso: @gato.peso, propietario: @gato.propietario, raza: @gato.raza, senas: @gato.senas, tamaño: @gato.tamaño } }
+    patch gato_url(@gato), params: { gato: { agresividad: @gato.agresividad, chip: @gato.chip, color: @gato.color, comentario: @gato.comentario, edad: @gato.edad, fiicha_id: @gato.fiicha_id, nombre: @gato.nombre, numero_chip: @gato.numero_chip, peso: @gato.peso, porte: @gato.porte, raza: @gato.raza, senas: @gato.senas, sexo: @gato.sexo } }
     assert_redirected_to gato_url(@gato)
   end
 

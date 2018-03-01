@@ -1,5 +1,6 @@
 class FichasController < ApplicationController
   before_action :set_ficha, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /fichas
   # GET /fichas.json
@@ -10,15 +11,21 @@ class FichasController < ApplicationController
   # GET /fichas/1
   # GET /fichas/1.json
   def show
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /fichas/new
   def new
     @ficha = Ficha.new
+    1.times{@ficha.perros.build}
+    1.times{@ficha.gatos.build}
   end
 
   # GET /fichas/1/edit
   def edit
+
   end
 
   # POST /fichas
@@ -28,7 +35,7 @@ class FichasController < ApplicationController
 
     respond_to do |format|
       if @ficha.save
-        format.html { redirect_to @ficha, notice: 'Ficha was successfully created.' }
+        format.html { redirect_to fichas_url, notice: 'Ficha was successfully created.' }
         format.json { render :show, status: :created, location: @ficha }
       else
         format.html { render :new }
@@ -42,7 +49,7 @@ class FichasController < ApplicationController
   def update
     respond_to do |format|
       if @ficha.update(ficha_params)
-        format.html { redirect_to @ficha, notice: 'Ficha was successfully updated.' }
+        format.html { redirect_to fichas_url, notice: 'Ficha was successfully updated.' }
         format.json { render :show, status: :ok, location: @ficha }
       else
         format.html { render :edit }
@@ -69,6 +76,6 @@ class FichasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ficha_params
-      params.require(:ficha).permit(:nombre, :sexo, :telefono, :direccion, :comuna, :email)
+      params.require(:ficha).permit(:nombre, :sexo, :tipo, :telefono, :direccion, :comuna, :email,perros_attributes:[:id,:nombre,:edad,:sexo,:raza,:tipo,:peso,:porte,:chip,:numero_chip,:agresividad,:color,:senas,:comentario,:_destroy],gatos_attributes:[:id,:nombre,:edad,:sexo,:raza,:tipo,:peso,:porte,:chip,:numero_chip,:agresividad,:color,:senas,:comentario,:_destroy])
     end
 end

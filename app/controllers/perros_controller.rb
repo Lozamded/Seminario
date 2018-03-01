@@ -1,6 +1,7 @@
 class PerrosController < ApplicationController
   before_action :set_perro, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  
   # GET /perros
   # GET /perros.json
   def index
@@ -10,6 +11,9 @@ class PerrosController < ApplicationController
   # GET /perros/1
   # GET /perros/1.json
   def show
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /perros/new
@@ -28,7 +32,7 @@ class PerrosController < ApplicationController
 
     respond_to do |format|
       if @perro.save
-        format.html { redirect_to @perro, notice: 'Perro was successfully created.' }
+        format.html { redirect_to perros_url, notice: 'Perro was successfully created.' }
         format.json { render :show, status: :created, location: @perro }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class PerrosController < ApplicationController
   def update
     respond_to do |format|
       if @perro.update(perro_params)
-        format.html { redirect_to @perro, notice: 'Perro was successfully updated.' }
+        format.html { redirect_to perros_url, notice: 'Perro was successfully updated.' }
         format.json { render :show, status: :ok, location: @perro }
       else
         format.html { render :edit }
@@ -69,6 +73,6 @@ class PerrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def perro_params
-      params.require(:perro).permit(:nombre, :numero_serie, :propietario, :raza, :peso, :tamaño, :senas, :comentario)
+      params.require(:perro).permit(:nombre, :edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :comentario, :ficha_id)
     end
 end

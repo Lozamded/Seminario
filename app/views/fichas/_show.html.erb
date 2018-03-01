@@ -1,0 +1,86 @@
+<!-- Modal -->
+<div id="showModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Detalles de ficha</h4>
+      </div>
+        <div class="modal-body">
+
+            <p>
+                <strong>Nombre:</strong>
+                <%= @ficha.nombre %>
+            </p>
+
+            <p>
+                <strong>Sexo:</strong>
+                <%= @ficha.sexo %>
+            </p>
+
+            <p>
+                <strong>Tipo:</strong>
+                <%= @ficha.tipo %>
+            </p>
+
+            <p>
+                <strong>Telefono:</strong>
+                <%= @ficha.telefono %>
+            </p>
+
+            <p>
+                <strong>Direccion:</strong>
+                <%= @ficha.direccion %>
+            </p>
+
+            <p>
+                <strong>Comuna:</strong>
+                <%= @ficha.comuna %>
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <%= @ficha.email %>
+            </p>
+
+            <strong>Animales</strong>
+            
+            <p>
+              <strong>Perros:</strong>
+              <% if @ficha.perros.any? %>
+                  <ul>
+                    <%@ficha.perros.each do |perro|%>
+                        <li>
+                          <%= link_to perro.nombre, edit_perro_path(perro)%> <%= perro.sexo%>,  <%= perro.tipo%> 
+                        </li>
+                    <%end%>
+                  </ul>
+              <%else%>
+              Sin perros
+              <% end %>
+            </p>
+
+            <p>
+              <strong>Gatos:</strong>
+              <% if @ficha.gatos.any? %>
+                  <ul>
+                    <%@ficha.gatos.each do |gato|%>
+                        <li>
+                        <%= link_to edit_gato_path(gato), data:{ dimiss:"modal" } do%> <%=gato.nombre%> <%end%>, <%= gato.sexo%>, <%= gato.tipo%>
+                        </li>
+                    <%end%>
+                  </ul>
+              <%else%>
+              Sin gatos
+              <% end %>
+              </p>
+
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

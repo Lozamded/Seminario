@@ -1,0 +1,82 @@
+<!-- Modal -->
+<div id="showModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Detalles de ficha</h4>
+      </div>
+        <div class="modal-body">
+
+            <p id="notice"><%= notice %></p>
+
+            <p>
+            <strong>Nombre:</strong>
+            <%= @perro.nombre %>
+            </p>
+
+            <p>
+            <strong>Edad:</strong>
+            <%= @perro.edad %>
+            </p>
+
+            <p>
+            <strong>Sexo:</strong>
+            <%= @perro.sexo %>
+            </p>
+
+            <p>
+            <strong>Raza:</strong>
+            <%= @perro.raza %>
+            </p>
+
+            <p>
+            <strong>Peso:</strong>
+            <%= @perro.peso %>
+            </p>
+
+            <p>
+            <strong>Porte:</strong>
+            <%= @perro.porte %>
+            </p>
+
+            <p>
+            <strong>Chip:</strong>
+            <%= @perro.chip %>
+            </p>
+
+            <p>
+            <strong>Numero chip:</strong>
+            <%= @perro.numero_chip %>
+            </p>
+
+            <p>
+            <strong>Agresividad:</strong>
+            <%= @perro.agresividad %>
+            </p>
+
+
+            <p>
+            <strong>Senas:</strong>
+            <%= @perro.senas %>
+            </p>
+
+            <p>
+            <strong>Comentario:</strong>
+            <%= @perro.comentario %>
+            </p>
+
+            <p>
+            <strong>Ficha:</strong>
+            <%= @perro.ficha.nombre %>
+            </p>
+
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

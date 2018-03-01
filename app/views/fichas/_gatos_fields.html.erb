@@ -1,0 +1,66 @@
+<div class="nested-fields">
+    
+    <div class="field">
+        <%= f.label :nombre %>
+        <%= f.text_field :nombre%>
+    </div>
+    
+    <div class="field">
+        <%= f.label :edad %>
+        <%= f.number_field :edad%>[Años]   
+    </div>
+
+    <div class="field">
+        <%= f.label :sexo %>
+        <%= f.select :sexo, ['Macho','Hembra']%>
+    </div>
+
+    <div class="field">
+        <%= f.label :raza %>
+        <%= f.text_field :raza%>
+    </div>
+
+    <div class="field">
+        <%= f.label :tipo %>
+        <%= f.select :tipo, ['Domestico','Callejero','Salvaje']%>
+    </div>
+
+    <div class="field">
+        <%= f.label :peso %>
+        <%= f.number_field :peso%>[kg]
+    </div>
+
+    <div class="field">
+        <% f.label :porte %>Tamaño
+        <%= f.select :porte, ['Pequeño','Mediano','Grande']%>
+    </div>
+
+    <div class="field">
+        <% f.label :chip %>Origen del chip
+        <%= f.select :chip, ['Viene con un chip ','Se le instalara el chip'] %>
+    </div>
+
+    <div class="field">
+        <%= f.label :numero_chip %>
+        <%= f.number_field :numero_chip%>
+    </div>
+
+    <div class="field">
+        <% f.label :agresividad %>Nivel de agresividad
+        <%= f.select :agresividad, ['Nula','Nervioso','Agresivo','Violento'] %>
+    </div>
+
+    <div class="field">
+        <% f.label :senas %>Señas<br>
+        <%= f.text_area :senas %>
+    </div>
+
+    <div class="field">
+        <%= f.label :comentario %>(Detalles o datos clinicos)<br>
+        <%= f.text_area :comentario %>
+    </div>
+    
+    <br>
+    <strong><%= link_to_remove_association 'Eliminar Gato', f %></strong><br><br>
+
+</div>

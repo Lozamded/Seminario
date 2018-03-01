@@ -17,13 +17,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :numero_serie %>
-    <%= form.text_field :numero_serie, id: :perro_numero_serie %>
+    <%= form.label :edad %>
+    <%= form.number_field :edad, id: :perro_edad %>[Años]
   </div>
 
   <div class="field">
-    <%= form.label :propietario %>
-    <%= form.text_field :propietario, id: :perro_propietario %>
+    <%= form.label :sexo %>
+    <%= form.select :sexo, ['Macho','Hembra']%>
   </div>
 
   <div class="field">
@@ -32,23 +32,53 @@
   </div>
 
   <div class="field">
+      <%= form.label :tipo %>
+      <%= form.select :tipo, ['Domestico','Callejero','Salvaje']%>
+  </div>
+
+  <div class="field">
     <%= form.label :peso %>
-    <%= form.text_field :peso, id: :perro_peso %>
+    <%= form.number_field :peso, id: :perro_peso %>[Kg]
   </div>
 
   <div class="field">
-    <%= form.label :tamaño %>
-    <%= form.text_field :tamaño, id: :perro_tamaño %>
+      <% form.label :porte %>Tamaño
+      <%= form.select :porte, ['Pequeño','Mediano','Grande']%>
   </div>
 
   <div class="field">
-    <%= form.label :senas %>
+    <% form.label :chip %>Origen del chip
+    <%= form.select :chip, ['Viene con un chip ','Se le instalara el chip'] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero_chip %>
+    <%= form.number_field :numero_chip, id: :perro_numero_chip %>
+  </div>
+
+  <div class="field">
+      <% form.label :agresividad %>Nivel de agresividad
+      <%= form.select :agresividad   , ['Nula','Nervioso','Agresivo','Violento'] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color, id: :perro_color %>
+  </div>
+
+  <div class="field">
+    <% form.label :senas %>Señas<br>
     <%= form.text_area :senas, id: :perro_senas %>
   </div>
 
   <div class="field">
-    <%= form.label :comentario %>
+    <%= form.label :comentario %><br>
     <%= form.text_area :comentario, id: :perro_comentario %>
+  </div>
+
+  <div class="field">
+    <% form.label :ficha_id %>Propietario
+    <%= form.collection_select :ficha_id , Ficha.order(:nombre), :id, :nombre  %>
   </div>
 
   <div class="actions">

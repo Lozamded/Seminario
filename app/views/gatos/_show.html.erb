@@ -1,0 +1,82 @@
+<!-- Modal -->
+<div id="showModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Detalles de ficha</h4>
+      </div>
+        <div class="modal-body">
+
+            <p id="notice"><%= notice %></p>
+
+            <p>
+            <strong>Nombre:</strong>
+            <%= @gato.nombre %>
+            </p>
+
+            <p>
+            <strong>Edad:</strong>
+            <%= @gato.edad %>
+            </p>
+
+            <p>
+            <strong>Sexo:</strong>
+            <%= @gato.sexo %>
+            </p>
+
+            <p>
+            <strong>Raza:</strong>
+            <%= @gato.raza %>
+            </p>
+
+            <p>
+            <strong>Peso:</strong>
+            <%= @gato.peso %>
+            </p>
+
+            <p>
+            <strong>Porte:</strong>
+            <%= @gato.porte %>
+            </p>
+
+            <p>
+            <strong>Chip:</strong>
+            <%= @gato.chip %>
+            </p>
+
+            <p>
+            <strong>Numero chip:</strong>
+            <%= @gato.numero_chip %>
+            </p>
+
+            <p>
+            <strong>Agresividad:</strong>
+            <%= @gato.agresividad %>
+            </p>
+
+
+            <p>
+            <strong>Senas:</strong>
+            <%= @gato.senas %>
+            </p>
+
+            <p>
+            <strong>Comentario:</strong>
+            <%= @gato.comentario %>
+            </p>
+
+            <p>
+            <strong>Ficha:</strong>
+            <%= @gato.ficha.nombre %>
+            </p>
+
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,18 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Gatos</h1>
+<%= link_to 'New Gato', new_gato_path %>
 
 <table>
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Numero serie</th>
-      <th>Propietario</th>
+      <th>Edad</th>
+      <th>Sexo</th>
       <th>Raza</th>
+      <th>Tipo</th>
       <th>Peso</th>
-      <th>Tamaño</th>
-      <th>Senas</th>
-      <th>Comentario</th>
+      <th>Porte</th>
+      <th>Chip</th>
+      <th>Numero chip</th>
+      <th>Agresividad</th>
+      <th>Propietario</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,14 +25,17 @@
     <% @gatos.each do |gato| %>
       <tr>
         <td><%= gato.nombre %></td>
-        <td><%= gato.numero_serie %></td>
-        <td><%= gato.propietario %></td>
+        <td><%= gato.edad %></td>
+        <td><%= gato.sexo %></td>
         <td><%= gato.raza %></td>
+        <td><%= gato.tipo %></td>
         <td><%= gato.peso %></td>
-        <td><%= gato.tamaño %></td>
-        <td><%= gato.senas %></td>
-        <td><%= gato.comentario %></td>
-        <td><%= link_to 'Show', gato %></td>
+        <td><%= gato.porte %></td>
+        <td><%= gato.chip %></td>
+        <td><%= gato.numero_chip %></td>
+        <td><%= gato.agresividad %></td>
+        <td><%= gato.ficha.nombre %></td>
+        <td><%= link_to 'Show', gato, :remote=>true %></td>
         <td><%= link_to 'Edit', edit_gato_path(gato) %></td>
         <td><%= link_to 'Destroy', gato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -38,4 +45,10 @@
 
 <br>
 
-<%= link_to 'New Gato', new_gato_path %>
+
+<%= link_to 'Volver', fichas_path %>
+
+<div id ="new-gato" style = "display:noone;"></div>
+<div id ="edit-gato" style = "display:noone;"></div>
+<div id ="show-gato" style = "display:noone;"></div>
+

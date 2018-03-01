@@ -1,18 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Perros</h1>
+<%= link_to 'New Perro', new_perro_path %>
 
 <table>
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Numero serie</th>
-      <th>Propietario</th>
+      <th>Edad</th>
+      <th>Sexo</th>
       <th>Raza</th>
+      <th>Tipo</th>
       <th>Peso</th>
-      <th>Tamaño</th>
-      <th>Senas</th>
-      <th>Comentario</th>
+      <th>Porte</th>
+      <th>Chip</th>
+      <th>Numero chip</th>
+      <th>Agresividad</th>
+      <th>Propietario</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,14 +25,17 @@
     <% @perros.each do |perro| %>
       <tr>
         <td><%= perro.nombre %></td>
-        <td><%= perro.numero_serie %></td>
-        <td><%= perro.propietario %></td>
+        <td><%= perro.edad %></td>
+        <td><%= perro.sexo %></td>
         <td><%= perro.raza %></td>
+        <td><%= perro.tipo%></td>
         <td><%= perro.peso %></td>
-        <td><%= perro.tamaño %></td>
-        <td><%= perro.senas %></td>
-        <td><%= perro.comentario %></td>
-        <td><%= link_to 'Show', perro %></td>
+        <td><%= perro.porte %></td>
+        <td><%= perro.chip %></td>
+        <td><%= perro.numero_chip %></td>
+        <td><%= perro.agresividad %></td>
+        <td><%= perro.ficha.nombre %></td>
+        <td><%= link_to 'Show', perro, :remote=>true %></td>
         <td><%= link_to 'Edit', edit_perro_path(perro) %></td>
         <td><%= link_to 'Destroy', perro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -38,4 +45,8 @@
 
 <br>
 
-<%= link_to 'New Perro', new_perro_path %>
+<%= link_to 'Volver', fichas_path %>
+
+<div id ="new-perro" style = "display:noone;"></div>
+<div id ="edit-perro" style = "display:noone;"></div>
+<div id ="show-perro" style = "display:noone;"></div>

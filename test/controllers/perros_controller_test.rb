@@ -17,7 +17,7 @@ class PerrosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create perro" do
     assert_difference('Perro.count') do
-      post perros_url, params: { perro: { comentario: @perro.comentario, nombre: @perro.nombre, numero_serie: @perro.numero_serie, peso: @perro.peso, propietario: @perro.propietario, raza: @perro.raza, senas: @perro.senas, tamaño: @perro.tamaño } }
+      post perros_url, params: { perro: { agresividad: @perro.agresividad, chip: @perro.chip, color: @perro.color, comentario: @perro.comentario, edad: @perro.edad, fiicha_id: @perro.fiicha_id, nombre: @perro.nombre, numero_chip: @perro.numero_chip, peso: @perro.peso, porte: @perro.porte, raza: @perro.raza, senas: @perro.senas, sexo: @perro.sexo } }
     end
 
     assert_redirected_to perro_url(Perro.last)
@@ -34,7 +34,7 @@ class PerrosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update perro" do
-    patch perro_url(@perro), params: { perro: { comentario: @perro.comentario, nombre: @perro.nombre, numero_serie: @perro.numero_serie, peso: @perro.peso, propietario: @perro.propietario, raza: @perro.raza, senas: @perro.senas, tamaño: @perro.tamaño } }
+    patch perro_url(@perro), params: { perro: { agresividad: @perro.agresividad, chip: @perro.chip, color: @perro.color, comentario: @perro.comentario, edad: @perro.edad, fiicha_id: @perro.fiicha_id, nombre: @perro.nombre, numero_chip: @perro.numero_chip, peso: @perro.peso, porte: @perro.porte, raza: @perro.raza, senas: @perro.senas, sexo: @perro.sexo } }
     assert_redirected_to perro_url(@perro)
   end
 

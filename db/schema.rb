@@ -10,32 +10,82 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224231802) do
+ActiveRecord::Schema.define(version: 20180228173924) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "fichas", force: :cascade do |t|
+    t.string "nombre"
+    t.string "sexo"
+    t.string "telefono"
+    t.string "direccion"
+    t.string "comuna"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "tipo"
+  end
 
   create_table "gatos", force: :cascade do |t|
     t.string "nombre"
-    t.bigint "numero_serie"
-    t.string "propietario"
+    t.bigint "edad"
+    t.string "sexo"
     t.string "raza"
     t.decimal "peso"
-    t.string "tamaño"
+    t.string "porte"
+    t.string "chip"
+    t.bigint "numero_chip"
+    t.string "agresividad"
+    t.string "color"
     t.text "senas"
     t.text "comentario"
+    t.bigint "ficha_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tipo"
+    t.index ["ficha_id"], name: "index_gatos_on_ficha_id"
   end
 
   create_table "perros", force: :cascade do |t|
     t.string "nombre"
-    t.bigint "numero_serie"
-    t.string "propietario"
+    t.bigint "edad"
+    t.string "sexo"
     t.string "raza"
     t.decimal "peso"
-    t.string "tamaño"
+    t.string "porte"
+    t.string "chip"
+    t.bigint "numero_chip"
+    t.string "agresividad"
+    t.string "color"
     t.text "senas"
     t.text "comentario"
+    t.bigint "ficha_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tipo"
+    t.index ["ficha_id"], name: "index_perros_on_ficha_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "role"
+    t.string "name"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "gatos", "fichas"
+  add_foreign_key "perros", "fichas"
 end

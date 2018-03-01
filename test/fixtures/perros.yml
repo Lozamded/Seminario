@@ -2,20 +2,30 @@
 
 one:
   nombre: MyString
-  numero_serie: 
-  propietario: MyString
+  edad: 
+  sexo: MyString
   raza: MyString
   peso: 
-  tamaño: MyString
+  porte: MyString
+  chip: MyString
+  numero_chip: 
+  agresividad: MyString
+  color: MyString
   senas: MyText
   comentario: MyText
+  fiicha: one
 
 two:
   nombre: MyString
-  numero_serie: 
-  propietario: MyString
+  edad: 
+  sexo: MyString
   raza: MyString
   peso: 
-  tamaño: MyString
+  porte: MyString
+  chip: MyString
+  numero_chip: 
+  agresividad: MyString
+  color: MyString
   senas: MyText
   comentario: MyText
+  fiicha: two

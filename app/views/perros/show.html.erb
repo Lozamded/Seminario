@@ -6,13 +6,13 @@
 </p>
 
 <p>
-  <strong>Numero serie:</strong>
-  <%= @perro.numero_serie %>
+  <strong>Edad:</strong>
+  <%= @perro.edad %>
 </p>
 
 <p>
-  <strong>Propietario:</strong>
-  <%= @perro.propietario %>
+  <strong>Sexo:</strong>
+  <%= @perro.sexo %>
 </p>
 
 <p>
@@ -26,8 +26,28 @@
 </p>
 
 <p>
-  <strong>Tamaño:</strong>
-  <%= @perro.tamaño %>
+  <strong>Porte:</strong>
+  <%= @perro.porte %>
+</p>
+
+<p>
+  <strong>Chip:</strong>
+  <%= @perro.chip %>
+</p>
+
+<p>
+  <strong>Numero chip:</strong>
+  <%= @perro.numero_chip %>
+</p>
+
+<p>
+  <strong>Agresividad:</strong>
+  <%= @perro.agresividad %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @perro.color %>
 </p>
 
 <p>
@@ -38,6 +58,11 @@
 <p>
   <strong>Comentario:</strong>
   <%= @perro.comentario %>
+</p>
+
+<p>
+  <strong>Ficha:</strong>
+  <%= @perro.ficha.nombre %>
 </p>
 
 <%= link_to 'Edit', edit_perro_path(@perro) %> |
