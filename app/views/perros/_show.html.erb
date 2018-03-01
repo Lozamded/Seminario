@@ -57,10 +57,43 @@
             <%= @perro.agresividad %>
             </p>
 
+            <p>
+            <strong>Señas:</strong>
+            <%= @perro.senas %>
+            </p>
+            
+            <p>
+              <strong>Vacunas:</strong>
+              <% if @perro.vacunas.any? %>
+                <%if @perro.vacunas.first.nombre == 'Propietario desconoce'%>
+                  Se desconoce si posee vacunas
+                <%else%>
+                  <ul>
+                    <%@perro.vacunas.each do |vacuna|%>
+                      <li>
+                        <%= vacuna.nombre%>
+                      </li>    
+                    <%end%>
+                  </ul>
+                <%end%>     
+              <%else%>
+              Sin Vacunas
+              <% end %>
+            </p>
 
             <p>
-            <strong>Senas:</strong>
-            <%= @perro.senas %>
+              <strong>Enfermedades:</strong>
+              <% if @perro.enfermedades.any? %>
+                  <ul>
+                    <%@perro.enfermedades.each do |enfermedad|%>
+                        <li>
+                          <%= enfermedad.nombre%>
+                        </li>
+                    <%end%>
+                  </ul>
+              <%else%>
+              Animal sano
+              <% end %>
             </p>
 
             <p>

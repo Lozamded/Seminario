@@ -1,4 +1,4 @@
-<%= form_with(model: perro, local: true) do |form| %>
+<%= form_with(model: perro, local: true) do |f| %>
   <% if perro.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(perro.errors.count, "error") %> prohibited this perro from being saved:</h2>
@@ -12,76 +12,114 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre, id: :perro_nombre %>
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre, id: :perro_nombre %>
   </div>
 
   <div class="field">
-    <%= form.label :edad %>
-    <%= form.number_field :edad, id: :perro_edad %>[Años]
+    <%= f.label :edad %>
+    <%= f.number_field :edad, id: :perro_edad %>[Años]
   </div>
 
   <div class="field">
-    <%= form.label :sexo %>
-    <%= form.select :sexo, ['Macho','Hembra']%>
+    <%= f.label :sexo %>
+    <%= f.select :sexo, ['Macho','Hembra']%>
   </div>
 
   <div class="field">
-    <%= form.label :raza %>
-    <%= form.text_field :raza, id: :perro_raza %>
+    <%= f.label :raza %>
+    <%= f.text_field :raza, id: :perro_raza %>
   </div>
 
   <div class="field">
-      <%= form.label :tipo %>
-      <%= form.select :tipo, ['Domestico','Callejero','Salvaje']%>
+      <%= f.label :tipo %>
+      <%= f.select :tipo, ['Domestico','Callejero','Salvaje']%>
   </div>
 
   <div class="field">
-    <%= form.label :peso %>
-    <%= form.number_field :peso, id: :perro_peso %>[Kg]
+    <%= f.label :peso %>
+    <%= f.number_field :peso, id: :perro_peso %>[Kg]
   </div>
 
   <div class="field">
-      <% form.label :porte %>Tamaño
-      <%= form.select :porte, ['Pequeño','Mediano','Grande']%>
+      <% f.label :porte %>Tamaño
+      <%= f.select :porte, ['Pequeño','Mediano','Grande']%>
   </div>
 
   <div class="field">
-    <% form.label :chip %>Origen del chip
-    <%= form.select :chip, ['Viene con un chip ','Se le instalara el chip'] %>
+    <% f.label :chip %>Origen del chip
+    <%= f.select :chip, ['Viene con un chip ','Se le instalara el chip'] %>
   </div>
 
   <div class="field">
-    <%= form.label :numero_chip %>
-    <%= form.number_field :numero_chip, id: :perro_numero_chip %>
+    <%= f.label :numero_chip %>
+    <%= f.number_field :numero_chip, id: :perro_numero_chip %>
   </div>
 
   <div class="field">
-      <% form.label :agresividad %>Nivel de agresividad
-      <%= form.select :agresividad   , ['Nula','Nervioso','Agresivo','Violento'] %>
+      <% f.label :agresividad %>Nivel de agresividad
+      <%= f.select :agresividad   , ['Nula','Nervioso','Agresivo','Violento'] %>
   </div>
 
   <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color, id: :perro_color %>
+    <%= f.label :color %>
+    <%= f.text_field :color, id: :perro_color %>
   </div>
 
   <div class="field">
-    <% form.label :senas %>Señas<br>
-    <%= form.text_area :senas, id: :perro_senas %>
+    <% f.label :senas %>Señas<br>
+    <%= f.text_area :senas, id: :perro_senas %>
   </div>
 
   <div class="field">
-    <%= form.label :comentario %><br>
-    <%= form.text_area :comentario, id: :perro_comentario %>
+    <%= f.label :comentario %><br>
+    <%= f.text_area :comentario, id: :perro_comentario %>
   </div>
 
   <div class="field">
-    <% form.label :ficha_id %>Propietario
-    <%= form.collection_select :ficha_id , Ficha.order(:nombre), :id, :nombre  %>
+    <% f.label :ficha_id %>Propietario
+    <%= f.collection_select :ficha_id , Ficha.order(:nombre), :id, :nombre  %>
   </div>
+
+    <h4><strong>Vacunas</strong></h4><br>
+
+  <div id="vacunas" >
+      <div class="vacunas-fields">
+      <%= f.fields_for :vacunas do |vacuna| %>
+          <%= render "vacunas_fields", f: vacuna %>
+      <% end %>
+      </div>
+  </div>
+
+  <strong>
+      <div class="links">
+      <%= link_to_add_association 'Añadir Vacuna', f, :vacunas,
+      'data-association-insertion-node' =>  '.vacunas-fields',
+      'data-association-insertion-method' => 'append', :class => 'btn_regular',
+      partial: 'vacunas_fields' %>
+      </div>
+  </strong><br>
+
+  <h4><strong>Enfermedades previas</strong></h4><br>
+
+  <div id="enfermedades" >
+      <div class="enfermedades-fields">
+      <%= f.fields_for :enfermedades do |enfermedad| %>
+          <%= render "enfermedades_fields", f: enfermedad %>
+      <% end %>
+      </div>
+  </div>
+
+  <strong>
+      <div class="links">
+      <%= link_to_add_association 'Añadir Enfermedad', f, :enfermedades,
+      'data-association-insertion-node' =>  '.enfermedades-fields',
+      'data-association-insertion-method' => 'append', :class => 'btn_regular',
+      partial: 'enfermedades_fields' %>
+      </div>
+  </strong><br>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

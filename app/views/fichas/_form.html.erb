@@ -19,8 +19,18 @@
   </div>
 
   <div class="field">
+    <%= f.label :rut %>
+    <%= f.text_field :rut, id: :ficha_rut %>
+  </div>
+
+  <div class="field">
     <%= f.label :sexo %>
-    <%= f.select :sexo, ['Hombre','Mujer'] %>
+    <%= f.select :sexo, ['Masculino','Femenino'] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :edad %>
+    <%= f.number_field :edad, id: :ficha_edad %>
   </div>
 
   <div class="tipo">
@@ -46,6 +56,16 @@
   <div class="field">
     <%= f.label :email %>
     <%= f.email_field :email, id: :ficha_email %>
+  </div>
+
+  <div class="field">
+    <% f.label :medio_encuentro %> <strong>Como se entero</strong>
+    <%= f.select :medio_encuentro, ['Redes Sociales','Medios masivos de comunicación','Medios de comunicación comunales','comunicaión directa','Letreros y tripticos','otros'] %>
+  </div>
+
+  <div class="field">
+    <% f.label :medio_encuentro_text %> <strong>Especifique nombre de medio, contacto o red social:</strong>
+    <%= f.text_field :medio_encuentro_text, id: :medio_encuentro %>
   </div>
 
   <h2>Animales:</h2><br>

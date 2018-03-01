@@ -1,0 +1,22 @@
+<%= form_with(model: vacuna, local: true) do |form| %>
+  <% if vacuna.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vacuna.errors.count, "error") %> prohibited this vacuna from being saved:</h2>
+
+      <ul>
+      <% vacuna.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :vacuna_nombre %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

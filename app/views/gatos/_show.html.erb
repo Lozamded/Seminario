@@ -57,12 +57,44 @@
             <%= @gato.agresividad %>
             </p>
 
-
             <p>
             <strong>Senas:</strong>
             <%= @gato.senas %>
             </p>
+            
+            <p>
+              <strong>Vacunas:</strong>
+              <% if @gato.vacunas.any? %>
+                    <%if @gato.vacunas.first.nombre == 'Propietario desconoce'%>
+                      Se desconoce si posee vacunas
+                    <%else%>
+                    <ul>
+                      <%@gato.vacunas.each do |vacuna|%>
+                        <li>
+                          <%= vacuna.nombre%>
+                        </li>
+                      <%end%>
+                    </ul>
+                    <%end%>
+              <%else%>
+              Sin Vacunas
+              <% end %>
+            </p>
 
+            <p>
+              <strong>Enfermedades:</strong>
+              <% if @gato.enfermedades.any? %>
+                  <ul>
+                    <%@gato.enfermedades.each do |enfermedad|%>
+                        <li>
+                          <%= enfermedad.nombre%>
+                        </li>
+                    <%end%>
+                  </ul>
+              <%else%>
+              Animal sano
+              <% end %>
+            </p>
             <p>
             <strong>Comentario:</strong>
             <%= @gato.comentario %>

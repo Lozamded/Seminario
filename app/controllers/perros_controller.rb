@@ -18,6 +18,8 @@ class PerrosController < ApplicationController
 
   # GET /perros/new
   def new
+    1.times{@perro.vacunas.build}
+    1.times{@perro.enfermedades.build}
     @perro = Perro.new
   end
 
@@ -32,7 +34,7 @@ class PerrosController < ApplicationController
 
     respond_to do |format|
       if @perro.save
-        format.html { redirect_to perros_url, notice: 'Perro was successfully created.' }
+        format.html { redirect_to perros_url, notice: 'Perro Creado.' }
         format.json { render :show, status: :created, location: @perro }
       else
         format.html { render :new }
@@ -46,7 +48,7 @@ class PerrosController < ApplicationController
   def update
     respond_to do |format|
       if @perro.update(perro_params)
-        format.html { redirect_to perros_url, notice: 'Perro was successfully updated.' }
+        format.html { redirect_to perros_url, notice: 'Perro actualizado.' }
         format.json { render :show, status: :ok, location: @perro }
       else
         format.html { render :edit }
@@ -60,7 +62,7 @@ class PerrosController < ApplicationController
   def destroy
     @perro.destroy
     respond_to do |format|
-      format.html { redirect_to perros_url, notice: 'Perro was successfully destroyed.' }
+      format.html { redirect_to perros_url, notice: 'Perro eliminado.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +75,6 @@ class PerrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def perro_params
-      params.require(:perro).permit(:nombre, :edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :comentario, :ficha_id)
+      params.require(:perro).permit(:nombre, :edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :comentario, :ficha_id, :apto_cirujia, :apto_cirujia_text, :medico_tratante, :hora_ingreso, :tipo_cirujia, :hallazgos, :hora_alta, :complicaciones, vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy])
     end
 end

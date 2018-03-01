@@ -1,0 +1,22 @@
+<%= form_with(model: enfermedade, local: true) do |form| %>
+  <% if enfermedade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(enfermedade.errors.count, "error") %> prohibited this enfermedade from being saved:</h2>
+
+      <ul>
+      <% enfermedade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :enfermedade_nombre %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

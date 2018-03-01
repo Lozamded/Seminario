@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :enfermedades
+  resources :vacunas
   devise_for :users
   root 'fichas#index'
 

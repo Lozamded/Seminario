@@ -18,6 +18,8 @@ class GatosController < ApplicationController
 
   # GET /gatos/new
   def new
+    1.times{@gato.vacunas.build}
+    1.times{@gato.enfermedades.build}
     @gato = Gato.new
   end
 
@@ -32,7 +34,7 @@ class GatosController < ApplicationController
 
     respond_to do |format|
       if @gato.save
-        format.html { redirect_to gatos_url, notice: 'Gato was successfully created.' }
+        format.html { redirect_to gatos_url, notice: 'Gato Creado.' }
         format.json { render :show, status: :created, location: @gato }
       else
         format.html { render :new }
@@ -46,7 +48,7 @@ class GatosController < ApplicationController
   def update
     respond_to do |format|
       if @gato.update(gato_params)
-        format.html { redirect_to gatos_url, notice: 'Gato was successfully updated.' }
+        format.html { redirect_to gatos_url, notice: 'Gato actualizado.' }
         format.json { render :show, status: :ok, location: @gato }
       else
         format.html { render :edit }
@@ -60,7 +62,7 @@ class GatosController < ApplicationController
   def destroy
     @gato.destroy
     respond_to do |format|
-      format.html { redirect_to gatos_url, notice: 'Gato was successfully destroyed.' }
+      format.html { redirect_to gatos_url, notice: 'Gato eliminado.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +75,6 @@ class GatosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gato_params
-      params.require(:gato).permit(:nombre, :edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :comentario, :ficha_id)
+      params.require(:gato).permit(:nombre, :edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :comentario, :ficha_id, :apto_cirujia, :apto_cirujia_text, :medico_tratante, :hora_ingreso, :tipo_cirujia, :hallazgos, :hora_alta, :complicaciones,vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy])
     end
 end

@@ -31,12 +31,12 @@
     </div>
 
     <div class="field">
-        <% f.label :porte %>Tamaño
+        <% f.label :porte %><strong>Tamaño<strong>
         <%= f.select :porte, ['Pequeño','Mediano','Grande']%>
     </div>
 
     <div class="field">
-        <% f.label :chip %>Origen del chip
+        <% f.label :chip %><strong>Origen del chip<strong>
         <%= f.select :chip, ['Viene con un chip ','Se le instalara el chip'] %>
     </div>
 
@@ -46,12 +46,12 @@
     </div>
 
     <div class="field">
-        <% f.label :agresividad %>Nivel de agresividad
+        <% f.label :agresividad %><strong>Nivel de agresividad</strong>
         <%= f.select :agresividad   , ['Nula','Nervioso','Agresivo','Violento'] %>
     </div>
 
     <div class="field">
-        <% f.label :senas %>Señas<br>
+        <% f.label :senas %><Strong>Señas<br></strong>
         <%= f.text_area :senas %>
     </div>
 
@@ -59,6 +59,44 @@
         <%= f.label :comentario %>(Detalles o datos clinicos)<br>
         <%= f.text_area :comentario %>
     </div>
+
+  <h4><strong>Vacunas</strong></h4><br>
+
+    <div id="vacunas" >
+        <div class="vacunas-fields">
+        <%= f.fields_for :vacunas do |vacuna| %>
+            <%= render "vacunas_fields", f: vacuna %>
+        <% end %>
+        </div>
+    </div>
+
+    <strong>
+        <div class="links">
+        <%= link_to_add_association 'Añadir Vacuna', f, :vacunas,
+        'data-association-insertion-node' =>  '.vacunas-fields',
+        'data-association-insertion-method' => 'append', :class => 'btn_regular',
+        partial: 'vacunas_fields' %>
+        </div>
+    </strong><br>
+
+    <h4><strong>Enfermedades previas</strong></h4><br>
+
+    <div id="enfermedades" >
+        <div class="enfermedades-fields">
+        <%= f.fields_for :enfermedades do |enfermedad| %>
+            <%= render "enfermedades_fields", f: enfermedad %>
+        <% end %>
+        </div>
+    </div>
+
+    <strong>
+        <div class="links">
+        <%= link_to_add_association 'Añadir Enfermedad', f, :enfermedades,
+        'data-association-insertion-node' =>  '.enfermedades-fields',
+        'data-association-insertion-method' => 'append', :class => 'btn_regular',
+        partial: 'enfermedades_fields' %>
+        </div>
+    </strong><br>
 
     <br>
     <strong><%= link_to_remove_association "Eliminar Perro", f %></strong><br><br>

@@ -16,6 +16,8 @@
       <th>Chip</th>
       <th>Numero chip</th>
       <th>Agresividad</th>
+      <th>Vacunas</th>
+      <th>Enfermedades</th>
       <th>Propietario</th>
       <th colspan="3"></th>
     </tr>
@@ -34,6 +36,18 @@
         <td><%= gato.chip %></td>
         <td><%= gato.numero_chip %></td>
         <td><%= gato.agresividad %></td>
+                <td>
+          <% if gato.vacunas.any? %>
+            <% if gato.vacunas.first.nombre == 'Propietario desconoce'%>
+              Desconocido
+            <%else%>
+              <%= gato.vacunas.count %>
+            <%end%>
+          <%else%>
+            0
+          <%end%>
+        </td>
+        <td><%= gato.enfermedades.count %></td>
         <td><%= gato.ficha.nombre %></td>
         <td><%= link_to 'Show', gato, :remote=>true %></td>
         <td><%= link_to 'Edit', edit_gato_path(gato) %></td>

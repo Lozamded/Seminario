@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228173924) do
+ActiveRecord::Schema.define(version: 20180301181559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "enfermedades", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "gato_id"
+    t.bigint "perro_id"
+    t.index ["gato_id"], name: "index_enfermedades_on_gato_id"
+    t.index ["perro_id"], name: "index_enfermedades_on_perro_id"
+  end
 
   create_table "fichas", force: :cascade do |t|
     t.string "nombre"
@@ -25,6 +35,10 @@ ActiveRecord::Schema.define(version: 20180228173924) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tipo"
+    t.string "medio_encuentro"
+    t.text "medio_encuentro_text"
+    t.bigint "edad"
+    t.string "rut"
   end
 
   create_table "gatos", force: :cascade do |t|
@@ -44,6 +58,13 @@ ActiveRecord::Schema.define(version: 20180228173924) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tipo"
+    t.string "apto_cirugia"
+    t.string "medico_tratante"
+    t.string "Hora_ingreso"
+    t.string "tipo_cirujia"
+    t.text "hallazgos"
+    t.string "hora_alta"
+    t.text "complicaciones"
     t.index ["ficha_id"], name: "index_gatos_on_ficha_id"
   end
 
@@ -64,6 +85,13 @@ ActiveRecord::Schema.define(version: 20180228173924) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tipo"
+    t.string "apto_cirugia"
+    t.string "medico_tratante"
+    t.string "Hora_ingreso"
+    t.string "tipo_cirujia"
+    t.text "hallazgos"
+    t.string "hora_alta"
+    t.text "complicaciones"
     t.index ["ficha_id"], name: "index_perros_on_ficha_id"
   end
 
@@ -86,6 +114,20 @@ ActiveRecord::Schema.define(version: 20180228173924) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vacunas", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "gato_id"
+    t.bigint "perro_id"
+    t.index ["gato_id"], name: "index_vacunas_on_gato_id"
+    t.index ["perro_id"], name: "index_vacunas_on_perro_id"
+  end
+
+  add_foreign_key "enfermedades", "gatos"
+  add_foreign_key "enfermedades", "perros"
   add_foreign_key "gatos", "fichas"
   add_foreign_key "perros", "fichas"
+  add_foreign_key "vacunas", "gatos"
+  add_foreign_key "vacunas", "perros"
 end

@@ -16,6 +16,8 @@
       <th>Chip</th>
       <th>Numero chip</th>
       <th>Agresividad</th>
+      <th>Vacunas</th>
+      <th>Enfermedades</th>
       <th>Propietario</th>
       <th colspan="3"></th>
     </tr>
@@ -34,6 +36,18 @@
         <td><%= perro.chip %></td>
         <td><%= perro.numero_chip %></td>
         <td><%= perro.agresividad %></td>
+        <td>
+          <% if perro.vacunas.any? %>
+            <% if perro.vacunas.first.nombre == 'Propietario desconoce'%>
+              Desconocido
+            <%else%>
+              <%= perro.vacunas.count %>
+            <%end%>
+          <%else%>
+            0
+          <%end%>
+        </td>
+        <td><%= perro.enfermedades.count %></td>
         <td><%= perro.ficha.nombre %></td>
         <td><%= link_to 'Show', perro, :remote=>true %></td>
         <td><%= link_to 'Edit', edit_perro_path(perro) %></td>
