@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :veterinarios
   resources :enfermedades
   resources :vacunas
   devise_for :users

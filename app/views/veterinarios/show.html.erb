@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @veterinario.nombre %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @veterinario.sexo %>
+</p>
+
+<p>
+  <strong>Fecha nacimiento:</strong>
+  <%= @veterinario.fecha_nacimiento %>
+</p>
+
+<p>
+  <strong>Rut:</strong>
+  <%= @veterinario.rut %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @veterinario.tipo %>
+</p>
+
+<p>
+  <strong>Especialidad:</strong>
+  <%= @veterinario.especialidad %>
+</p>
+
+<%= link_to 'Edit', edit_veterinario_path(@veterinario) %> |
+<%= link_to 'Back', veterinarios_path %>

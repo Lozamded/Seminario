@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301181559) do
+ActiveRecord::Schema.define(version: 20180302040155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,14 +58,17 @@ ActiveRecord::Schema.define(version: 20180301181559) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tipo"
-    t.string "apto_cirugia"
+    t.string "apto_cirujia"
+    t.text "apto_cirujia_text"
     t.string "medico_tratante"
-    t.string "Hora_ingreso"
+    t.time "hora_ingreso"
     t.string "tipo_cirujia"
     t.text "hallazgos"
-    t.string "hora_alta"
+    t.time "hora_alta"
     t.text "complicaciones"
+    t.bigint "veterinario_id"
     t.index ["ficha_id"], name: "index_gatos_on_ficha_id"
+    t.index ["veterinario_id"], name: "index_gatos_on_veterinario_id"
   end
 
   create_table "perros", force: :cascade do |t|
@@ -85,14 +88,17 @@ ActiveRecord::Schema.define(version: 20180301181559) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tipo"
-    t.string "apto_cirugia"
+    t.string "apto_cirujia"
+    t.text "apto_cirujia_text"
     t.string "medico_tratante"
-    t.string "Hora_ingreso"
+    t.time "hora_ingreso"
     t.string "tipo_cirujia"
     t.text "hallazgos"
-    t.string "hora_alta"
+    t.time "hora_alta"
     t.text "complicaciones"
+    t.bigint "veterinario_id"
     t.index ["ficha_id"], name: "index_perros_on_ficha_id"
+    t.index ["veterinario_id"], name: "index_perros_on_veterinario_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -124,10 +130,23 @@ ActiveRecord::Schema.define(version: 20180301181559) do
     t.index ["perro_id"], name: "index_vacunas_on_perro_id"
   end
 
+  create_table "veterinarios", force: :cascade do |t|
+    t.string "nombre"
+    t.string "sexo"
+    t.date "fecha_nacimiento"
+    t.string "rut"
+    t.string "tipo"
+    t.text "especialidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "enfermedades", "gatos"
   add_foreign_key "enfermedades", "perros"
   add_foreign_key "gatos", "fichas"
+  add_foreign_key "gatos", "veterinarios"
   add_foreign_key "perros", "fichas"
+  add_foreign_key "perros", "veterinarios"
   add_foreign_key "vacunas", "gatos"
   add_foreign_key "vacunas", "perros"
 end

@@ -1,0 +1,47 @@
+<%= form_with(model: veterinario, local: true) do |form| %>
+  <% if veterinario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(veterinario.errors.count, "error") %> prohibited this veterinario from being saved:</h2>
+
+      <ul>
+      <% veterinario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :veterinario_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sexo %>
+    <%= form.text_field :sexo, id: :veterinario_sexo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_nacimiento %>
+    <%= form.date_field :fecha_nacimiento, id: :veterinario_fecha_nacimiento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rut %>
+    <%= form.text_field :rut, id: :veterinario_rut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo %>
+    <%= form.text_field :tipo, id: :veterinario_tipo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :especialidad %>
+    <%= form.text_area :especialidad, id: :veterinario_especialidad %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
