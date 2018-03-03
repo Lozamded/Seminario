@@ -1,52 +1,101 @@
 <!DOCTYPE html>
 <html>
-  <meta charset="UTF-8">
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <head>
     <title>Seminario</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Seminario de esterilizacion animal">
+    <meta name="author" content="Diego Higuera">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <style>
+     html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    </style>
+
   </head>
+  <div>
+    <% if current_user%>
+      <strong>bienvenido <%= current_user.email %></strong>
+      <%= link_to "Cerrar sesión" , destroy_user_session_path, :method=>:delete %>
+    <%end%>
+  </div>
 
-   <style>
-    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-  </style>
-  <body class="w3-light-grey">
+    <body id="page-left" data-spy="scroll" data-target=".navbar-fixed-left">
+      <%if current_user %>
+      <nav class="navbar navbar-custom navbar-fixed-left" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="fa fa-bars">Detalle</i>
+            </button>
+              <a class="navbar-brand" href="fichas">
+                <i class="fa fa-play-circle"></i>  <span class="light">Fichas</span>
+            </a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+              <li class="hidden">
+                    <a href="#page-top"></a>
+              </li>
+              <li>
+                    <a class="btn-default" href="perros">Perros</a>
+              </li>
+              <li>
+                    <a class="btn-default" href="gatos">Gatos</a>
+              </li>
+              <li>
+                    <a class="btn-default" href="veterinarios">Veterinarios</a>
+              </li>
+             </ul>
+          </div>
 
-    <!-- Page Container -->
-<d  iv class="w3-content w3-margin-top" style="max-width:1400px;">
-
-  <!-- The Grid -->
-  <div class="w3-row-padding">
-
-  
-  
-    <main role="main">
-
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <%= yield %>
         </div>
-      </div>
+      </nav>
+    <%end%>
+    <br>
 
-      <div class="container">
-      
-        <!-- Example row of columns -->
-        <hr>
-      </div> <!-- /container -->
 
-    </main>
-
-    <footer class="container">
-      <p>&copy; Fundación Stuka 2018 </p>
-    </footer>
-
+    <div class="jumbotron">
+       <div class="w3-container w3-card w3-white w3-margin-bottom">
+         <%= yield %>
+       </div>
+    </div>
   </body>
+
+  <footer>
+    <div class="container text-center">
+        <p>Copyright &copy; Fundación Stuka 2018 </p>
+    </div>
+</footer>
+
+    <!-- jQuery -->
+  <script src="js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="js/jquery.easing.min.js"></script>
+
+  <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="js/grayscale.js"></script>
 </html>

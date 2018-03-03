@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><strong>Seminario de esterilización animal</strong></h1>
-<h3>bienvenido <%= current_user.email %></h3>
-<h4><%= link_to "Cerrar sesión" , destroy_user_session_path, :method=>:delete %><h4>
+
 <br/>
 
 <h1>Fichas</h1>
@@ -50,7 +48,7 @@
             <%= ficha.gatos.count%>
           <%end%>
         </td>
-        <td><%=ficha.medio_encuentro%><td> 
+        <td><%=ficha.medio_encuentro%><td>
         <td><%= link_to 'Show', ficha, :remote=>true %></td>
         <td><%= link_to 'Edit', edit_ficha_path(ficha) %></td>
         <td><%= link_to 'Destroy', ficha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -68,5 +66,3 @@
 <div id ="show-ficha" style = "display:noone;"></div>
 
 <br>
-
-
