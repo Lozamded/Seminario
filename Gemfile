@@ -30,6 +30,8 @@ gem 'jquery-rails'
 
 gem 'jquery-easing-rails'
 
+gem "font-awesome-rails"
+
 gem 'cocoon'
 
 gem 'carrierwave'

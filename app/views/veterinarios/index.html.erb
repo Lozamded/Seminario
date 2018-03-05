@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Veterinarios</h1>
+<h1>Veterinarios</h1><br>
+
+<%= link_to 'New Veterinario', new_veterinario_path %>
+<br>
 
 <table>
   <thead>
@@ -21,8 +24,6 @@
         <td><%= veterinario.nombre %></td>
         <td><%= veterinario.sexo %></td>
         <td><%= veterinario.fecha_nacimiento %></td>
-        <td><%= veterinario.rut %></td>
-        <td><%= veterinario.tipo %></td>
         <td><%= veterinario.especialidad %></td>
         <td><%= link_to 'Show', veterinario %></td>
         <td><%= link_to 'Edit', edit_veterinario_path(veterinario) %></td>
@@ -34,4 +35,4 @@
 
 <br>
 
-<%= link_to 'New Veterinario', new_veterinario_path %>
+<%= link_to 'Volver', fichas_path %>

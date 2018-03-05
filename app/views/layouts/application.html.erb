@@ -34,6 +34,8 @@
     <%end%>
   </div>
 
+
+
     <body id="page-left" data-spy="scroll" data-target=".navbar-fixed-left">
       <%if current_user %>
       <nav class="navbar navbar-custom navbar-fixed-left" role="navigation">
@@ -42,8 +44,8 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i class="fa fa-bars">Detalle</i>
             </button>
-              <a class="navbar-brand" href="fichas">
-                <i class="fa fa-play-circle"></i>  <span class="light">Fichas</span>
+              <a class="navbar-brand" href="/fichas" >
+                <i class="glyphicon glyphicon-list-alt"></i>  <span class="light">Fichas</span>
             </a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,13 +56,13 @@
                     <a href="#page-top"></a>
               </li>
               <li>
-                    <a class="btn-default" href="perros">Perros</a>
+                    <a class="btn-default" href="/perros">Perros</a>
               </li>
               <li>
-                    <a class="btn-default" href="gatos">Gatos</a>
+                    <a class="btn-default" href="/gatos">Gatos</a>
               </li>
               <li>
-                    <a class="btn-default" href="veterinarios">Veterinarios</a>
+                    <a class="btn-default" href="/veterinarios">Veterinarios</a>
               </li>
              </ul>
           </div>
@@ -72,7 +74,7 @@
 
 
     <div class="jumbotron">
-       <div class="w3-container w3-card w3-white w3-margin-bottom">
+       <div class="w4-container w4-card w4-white w4-margin-bottom">
          <%= yield %>
        </div>
     </div>
