@@ -58,7 +58,7 @@
             </p>
 
             <p>
-            <strong>Senas:</strong>
+            <strong>Señas:</strong>
             <%= @gato.senas %>
             </p>
             
@@ -104,6 +104,52 @@
             <strong>Ficha:</strong>
             <%= @gato.ficha.nombre %>
             </p>
+
+            <h3><strong>Datos de cirugía</strong></h3>
+            <br>
+
+            <p>
+              <strong>Apto para la cirugía:</strong>
+              <%= @gato.apto_cirujia %>
+            <p>
+
+            <p>
+              <strong>Veterinario cirugía:</strong>
+              <% vet = Veterinario.where(id: @gato.veterinario_id).first %>
+              <% if vet != nil %>
+                <%=  vet.nombre %>
+              <%else%>
+                No asignado
+              <%end%>
+            <p>
+
+            <p>
+              <strong>Hora ingreso:</strong>
+              <%if @gato.hora_ingreso != nil %>
+                <%= @gato.hora_ingreso.strftime("%H:%M") %>
+              <%else%>
+                No ingresado
+              <%end%>
+            <p>
+
+            <p>
+              <strong>Hora alta medica:</strong>
+              <%if @gato.hora_alta != nil %>
+                <%= @gato.hora_alta.strftime("%H:%M") %>
+              <%else%>
+                No ingresado
+              <%end%>
+            <p>
+
+            <p>
+              <strong>Hallazgos:</strong>
+              <%= @gato.hallazgos %>
+            <p>
+
+            <p>
+              <strong>Complicaciones:</strong>
+              <%= @gato.complicaciones %>
+            <p>
 
         </div>
       <div class="modal-footer">

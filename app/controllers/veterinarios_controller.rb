@@ -10,6 +10,9 @@ class VeterinariosController < ApplicationController
   # GET /veterinarios/1
   # GET /veterinarios/1.json
   def show
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /veterinarios/new
@@ -28,7 +31,7 @@ class VeterinariosController < ApplicationController
 
     respond_to do |format|
       if @veterinario.save
-        format.html { redirect_to @veterinario, notice: 'Veterinario was successfully created.' }
+        format.html { redirect_to veterinarios_url, notice: 'Veterinario was successfully created.' }
         format.json { render :show, status: :created, location: @veterinario }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class VeterinariosController < ApplicationController
   def update
     respond_to do |format|
       if @veterinario.update(veterinario_params)
-        format.html { redirect_to @veterinario, notice: 'Veterinario was successfully updated.' }
+        format.html { redirect_to veterinarios_url, notice: 'Veterinario was successfully updated.' }
         format.json { render :show, status: :ok, location: @veterinario }
       else
         format.html { render :edit }

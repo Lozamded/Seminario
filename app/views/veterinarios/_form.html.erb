@@ -16,9 +16,14 @@
     <%= form.text_field :nombre, id: :veterinario_nombre %>
   </div>
 
+   <div class="field">
+    <%= form.label :rut %>
+    <%= form.text_field :rut, id: :veterinario_rut %>
+  </div>
+
   <div class="field">
     <%= form.label :sexo %>
-    <%= form.text_field :sexo, id: :veterinario_sexo %>
+    <%= form.select :sexo, ['Masculino','Femenino'] %>
   </div>
 
   <div class="field">
@@ -26,14 +31,11 @@
     <%= form.date_field :fecha_nacimiento, id: :veterinario_fecha_nacimiento %>
   </div>
 
-  <div class="field">
-    <%= form.label :rut %>
-    <%= form.text_field :rut, id: :veterinario_rut %>
-  </div>
+ 
 
-  <div class="field">
+  <div class="tipo">
     <%= form.label :tipo %>
-    <%= form.text_field :tipo, id: :veterinario_tipo %>
+    <%= form.select :tipo, ['Invitado','Stuka','Spay Mexico','Asistente'], {include_blank: "Seleccione"} %>
   </div>
 
   <div class="field">

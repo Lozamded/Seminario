@@ -13,7 +13,8 @@
       <th>Fecha nacimiento</th>
       <th>Rut</th>
       <th>Tipo</th>
-      <th>Especialidad</th>
+      <th>Perros</th>
+      <th>Gatos</th->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,8 +25,15 @@
         <td><%= veterinario.nombre %></td>
         <td><%= veterinario.sexo %></td>
         <td><%= veterinario.fecha_nacimiento %></td>
-        <td><%= veterinario.especialidad %></td>
-        <td><%= link_to 'Show', veterinario %></td>
+        <td><%= veterinario.rut %></td>
+        <td><%= veterinario.tipo %></td>
+        <td>
+          <%= Perro.where(veterinario_id: veterinario.id).count %>
+        </td>
+        <td>
+          <%= Gato.where(veterinario_id: veterinario.id).count %>
+        </td>
+        <td><%= link_to 'Show', veterinario, :remote=>true %></td>
         <td><%= link_to 'Edit', edit_veterinario_path(veterinario) %></td>
         <td><%= link_to 'Destroy', veterinario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -36,3 +44,7 @@
 <br>
 
 <%= link_to 'Volver', fichas_path %>
+
+<div id ="new-veterinario" style = "display:noone;"></div>
+<div id ="edit-veterinario" style = "display:noone;"></div>
+<div id ="show-veterinario" style = "display:noone;"></div>

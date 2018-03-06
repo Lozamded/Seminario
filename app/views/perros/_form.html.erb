@@ -119,6 +119,51 @@
       </div>
   </strong><br>
 
+<h4><strong>Datos de operación</strong></h4><br>
+
+    <div class="field"><br>
+      <% f.label :apto_cirujia %><strong>Perro apto para la cirujía</strong>
+      <%= f.select :apto_cirujia   , ['Si','No'] %><br>
+      <% f.label :apto_cirujia_text %><strong>Razón:</strong>(Opcional) <br>
+      <%= f.text_area :apto_cirujia_text, id: :gato_cirujia_text %>
+    </div>  
+    
+    <div class="field">
+      <%= f.label :veterinario_id %>
+      <%= f.collection_select :veterinario_id, Veterinario.order(:nombre), :id, :nombre  %>
+    </div>
+
+    <div class="field">
+      <%= f.label :hora_ingreso %> (formato de 24Hrs)
+      <%= f.time_field :hora_ingreso, id: :perro_hora_ingreso%>
+    </div>
+
+    <div class="field">
+      <%if f.object.sexo == 'Macho' %>
+        <%= f.label :tipo_cirujia %>
+        <%= f.select :tipo_cirujia , ['Orquiectomía bilateral','Orquiectomía unilateral','Orquiectomía unilateral, extración abdominal'] %>
+      <%end%>
+      <%if f.object.sexo == 'Hembra'%>
+        <%= f.label :tipo_cirujia %>
+        <%= f.select :tipo_cirujia , ['OVH','OH'] %>
+      <%end%>
+    </div>
+
+    <div class="field">
+      <% f.label :hallazgos %><strong>Hallazgos durante operación</strong><br>
+      <%= f.text_area :hallazgos, id: :perro_hallazgos%>
+    </div>
+
+    <div class="field">
+      <%= f.label :hora_alta %> (formato de 24Hrs)
+      <%= f.time_field :hora_alta, id: :perro_hora_alta%>
+    </div>
+
+    <div class="field">
+      <% f.label :complicaciones %><strong>Complicaciones durante operación</strong><br>
+      <%= f.text_area :complicaciones, id: :perro_complicaciones%>
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

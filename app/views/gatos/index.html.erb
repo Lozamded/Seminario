@@ -20,6 +20,11 @@
       <th>Vacunas</th>
       <th>Enfermedades</th>
       <th>Propietario</th>
+      <th>Apto operación</th>
+      <th>Veterinario </th>
+      <th>Tipo cirugía</th>
+      <th>Hora ingreso</th>
+      <th>Hora alta</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -37,19 +42,27 @@
         <td><%= gato.chip %></td>
         <td><%= gato.numero_chip %></td>
         <td><%= gato.agresividad %></td>
-                <td>
-          <% if gato.vacunas.any? %>
-            <% if gato.vacunas.first.nombre == 'Propietario desconoce'%>
-              Desconocido
-            <%else%>
-              <%= gato.vacunas.count %>
-            <%end%>
-          <%else%>
-            0
-          <%end%>
-        </td>
+        <td><%= gato.vacunas.count %></td>
         <td><%= gato.enfermedades.count %></td>
         <td><%= gato.ficha.nombre %></td>
+        <td><%= gato.apto_cirujia%></td>
+        <td>              
+          <% vet = Veterinario.where(id: gato.veterinario_id).first %>
+            <% if vet != nil %>
+              <%=  vet.nombre %>
+            <%end%>
+        </td>
+        <td><%= gato.tipo_cirujia%></td>
+       <td>
+              <%if gato.hora_ingreso != nil %>
+                <%= gato.hora_ingreso.strftime("%H:%M") %>
+              <%end%>
+        </td>
+        <td>
+              <%if gato.hora_alta != nil %>
+                <%= gato.hora_alta.strftime("%H:%M") %>
+              <%end%>
+        </td>
         <td><%= link_to 'Show', gato, :remote=>true %></td>
         <td><%= link_to 'Edit', edit_gato_path(gato) %></td>
         <td><%= link_to 'Destroy', gato, method: :delete, data: { confirm: 'Are you sure?' } %></td>

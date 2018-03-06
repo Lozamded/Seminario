@@ -1,6 +1,6 @@
 class Gato < ApplicationRecord
   belongs_to :ficha
-  #has_one :veterinario, class_name: "${1/[[:alpha:]]+|(_)/(?1::\u)/g", foreign_key: "veterinario_id"}
+  belongs_to :veterinario, optional: true
 
   has_many :vacunas, dependent: :destroy
   accepts_nested_attributes_for :vacunas,

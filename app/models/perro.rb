@@ -1,5 +1,7 @@
 class Perro < ApplicationRecord
   belongs_to :ficha
+  belongs_to :veterinario, optional: true
+
 
   has_many :vacunas, dependent: :destroy
   accepts_nested_attributes_for :vacunas,

@@ -102,9 +102,51 @@
             </p>
 
             <p>
-            <strong>Ficha:</strong>
+            <strong>Propietario:</strong>
             <%= @perro.ficha.nombre %>
-            </p>
+            </p><br>
+
+            <h3><strong>Datos de cirugía</strong></h3>
+            <br>
+
+            <p>
+              <strong>Apto para la cirugía:</strong>
+              <%= @perro.apto_cirujia %>
+            <p>
+
+            <p>
+              <strong>Veterinario cirugía:</strong>
+              <% vet = Veterinario.where(id: @perro.veterinario_id).first %>
+              <% if vet != nil %>
+                <%=  vet.nombre %>
+              <%else%>
+                No asignado
+              <%end%>
+            <p>
+
+            <p>
+              <strong>Hora ingreso:</strong>
+              <%if @perro.hora_ingreso != nil %>
+                <%= @perro.hora_ingreso.strftime("%H:%M") %>
+              <%else%>
+                No ingresado
+              <%end%>
+            <p>
+
+            <p>
+              <strong>Hora alta medica:</strong>
+              <%if @perro.hora_alta != nil %>
+                <%= @perro.hora_alta.strftime("%H:%M") %>
+              <%else%>
+                No ingresado
+              <%end%>
+            <p>
+
+            <p>
+              <strong>Complicaciones:</strong>
+              <%= @perro.complicaciones %>
+            <p>
+
 
         </div>
       <div class="modal-footer">

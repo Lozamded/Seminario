@@ -1,0 +1,73 @@
+<!-- Modal -->
+<div id="showModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Detalles del veterinario</h4>
+      </div>
+        <div class="modal-body">
+
+            <p>
+              <strong>Nombre:</strong>
+              <%= @veterinario.nombre %>
+            </p>
+
+            <p>
+              <strong>Sexo:</strong>
+              <%= @veterinario.sexo %>
+            </p>
+
+            <p>
+              <strong>Fecha nacimiento:</strong>
+              <%= @veterinario.fecha_nacimiento %>
+            </p>
+
+            <p>
+              <strong>Rut:</strong>
+              <%= @veterinario.rut %>
+            </p>
+
+            <p>
+              <strong>Tipo:</strong>
+              <%= @veterinario.tipo %>
+            </p>
+
+            <p>
+              <strong>Especialidad:</strong>
+              <%= @veterinario.especialidad %>
+            </p>
+
+            <p>
+              <strong>Perros:</strong>
+              <% perros = Perro.where(veterinario_id: @veterinario.id) %>
+              <ul>
+                <% perros.each do |perro| %>
+                  <li>
+                    <%= link_to perro.nombre, edit_perro_path(perro)%>
+                  </li>
+                <%end%>
+              </ul>
+            </p>
+
+            <p>
+              <strong>gatos:</strong>
+              <% gatos = Gato.where(veterinario_id: @veterinario.id) %>
+              <ul>
+                <% gatos.each do |gato| %>
+                  <li>
+                    <%= link_to gato.nombre, edit_gato_path(gato)%>
+                  </li>
+                <%end%>
+              </ul>
+            </p>
+
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
