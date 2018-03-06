@@ -6,6 +6,10 @@ class GatosController < ApplicationController
   # GET /gatos.json
   def index
     @gatos = Gato.all
+    respond_to do |f|
+      f.html
+      f.pdf{ render template: 'gatos/ficha', pdf:'Ficha' }
+    end
   end
 
   # GET /gatos/1
