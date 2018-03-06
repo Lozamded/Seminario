@@ -4,8 +4,11 @@
 <br/>
 
 <h1>Fichas</h1>
+<br>
+<%= link_to new_ficha_path  do%>
+  <i class=" glyphicon glyphicon-plus-sign  "><strong>Nueva ficha</strong></i>
+<%end%><br><br>
 
-<%= link_to 'Generar ficha', new_ficha_path %>
 
 <table>
   <thead>
@@ -49,9 +52,21 @@
           <%end%>
         </td>
         <td><%=ficha.medio_encuentro%><td>
-        <td><%= link_to 'Show', ficha, :remote=>true %></td>
-        <td><%= link_to 'Edit', edit_ficha_path(ficha) %></td>
-        <td><%= link_to 'Destroy', ficha, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to ficha, :remote=>true do%>
+            <i class="glyphicon glyphicon-eye-open"></i>
+          <%end%>
+        </td>
+        <td>
+          <%= link_to edit_ficha_path(ficha) do%>
+            <i class="glyphicon glyphicon-edit"></i>
+          <%end%>
+        </td>
+        <td>
+          <%= link_to ficha, method: :delete, data: { confirm: '¿Esta seguro de eliminar la ficha?' } do%>
+            <i class="glyphicon glyphicon-remove"></i>
+          <%end%>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Gatos</h1>
-<%= link_to 'New Gato', new_gato_path %>
-<br>
+<h1>Gatos</h1><br>
+
+<%= link_to new_gato_path do%>
+  <i class=" glyphicon glyphicon-plus-sign  "><strong>Agregar gato</strong></i>
+<%end%>
+
+<br><br>
 
 <table>
   <thead>
@@ -63,9 +67,9 @@
                 <%= gato.hora_alta.strftime("%H:%M") %>
               <%end%>
         </td>
-        <td><%= link_to 'Show', gato, :remote=>true %></td>
-        <td><%= link_to 'Edit', edit_gato_path(gato) %></td>
-        <td><%= link_to 'Destroy', gato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to  gato, :remote=>true do%><i class="glyphicon glyphicon-eye-open"></i><%end%></td>
+        <td><%= link_to  edit_gato_path(gato) do%><i class="glyphicon glyphicon-edit"></i><%end%></td>
+        <td><%= link_to  gato, method: :delete, data: { confirm: 'Are you sure?' } do%><i class="glyphicon glyphicon-remove"></i><%end%></td>
       </tr>
     <% end %>
   </tbody>

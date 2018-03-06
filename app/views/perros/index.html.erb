@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Perros</h1>
-<%= link_to 'New Perro', new_perro_path %>
-<br>
+<h1>Perros</h1><br>
+
+<%= link_to new_perro_path do %>
+   <i class=" glyphicon glyphicon-plus-sign  "><strong>Agregar perro</strong></i>
+<%end%>
+<br><br>
+
 <table>
   <thead>
     <tr>
@@ -62,9 +66,9 @@
                 <%= perro.hora_alta.strftime("%H:%M") %>
               <%end%>
         </td>
-        <td><%= link_to 'Show', perro, :remote=>true %></td>
-        <td><%= link_to 'Edit', edit_perro_path(perro) %></td>
-        <td><%= link_to 'Destroy', perro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to  perro, :remote=>true do%><i class="glyphicon glyphicon-eye-open"></i><%end%></td>
+        <td><%= link_to edit_perro_path(perro) do%><i class="glyphicon glyphicon-edit"></i><%end%></td>
+        <td><%= link_to perro, method: :delete, data: { confirm: 'Are you sure?' } do%><i class="glyphicon glyphicon-remove"></i><%end%></td>
       </tr>
     <% end %>
   </tbody>

@@ -2,8 +2,10 @@
 
 <h1>Veterinarios</h1><br>
 
-<%= link_to 'New Veterinario', new_veterinario_path %>
-<br>
+<%= link_to new_veterinario_path do%>
+   <i class=" glyphicon glyphicon-plus-sign  "><strong>Nuevo Veterinario</strong></i>
+<%end%>
+<br><br>
 
 <table>
   <thead>
@@ -33,9 +35,9 @@
         <td>
           <%= Gato.where(veterinario_id: veterinario.id).count %>
         </td>
-        <td><%= link_to 'Show', veterinario, :remote=>true %></td>
-        <td><%= link_to 'Edit', edit_veterinario_path(veterinario) %></td>
-        <td><%= link_to 'Destroy', veterinario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to veterinario, :remote=>true do%><i class="glyphicon glyphicon-eye-open"></i><%end%></td>
+        <td><%= link_to edit_veterinario_path(veterinario) do%><i class="glyphicon glyphicon-edit"></i><%end%></td>
+        <td><%= link_to veterinario, method: :delete, data: { confirm: 'Are you sure?' } do%><i class="glyphicon glyphicon-remove"></i><%end%></td>
       </tr>
     <% end %>
   </tbody>
