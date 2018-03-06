@@ -65,5 +65,7 @@
   <%= @gato.ficha %>
 </p>
 
+<%= link_to 'Create PDF document', gato(@gato, :format => :pdf)%>
+
 <%= link_to 'Edit', edit_gato_path(@gato) %> |
 <%= link_to 'Back', gatos_path %>

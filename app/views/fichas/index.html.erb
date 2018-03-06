@@ -6,71 +6,72 @@
 <h1>Fichas</h1>
 <br>
 <%= link_to new_ficha_path  do%>
-  <i class=" glyphicon glyphicon-plus-sign  "><strong>Nueva ficha</strong></i>
+  <i class=" glyphicon glyphicon-plus-sign"><strong>Nueva ficha</strong></i>
 <%end%><br><br>
 
-
-<table>
-  <thead>
-    <tr>
-      <th>Propietario</th>
-      <th>Tipo</th>
-      <th>Edad</th>
-      <th>Rut</th>
-      <th>Telefono</th>
-      <th>Direccion</th>
-      <th>Email</th>
-      <th>Perros</th>
-      <th>Gatos</th>
-      <th>Se entero por</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @fichas.each do |ficha| %>
+<div class="table-responsive">
+  <table class="table-bordered">
+    <thead class="thead-dark">
       <tr>
-        <td><%= ficha.nombre %></td>
-        <td><%= ficha.tipo %></td>
-        <td><%= ficha.edad %></td>
-        <td><%= ficha.rut %></td>
-        <td><%= ficha.telefono %></td>
-        <td><%= ficha.direccion %>, <%= ficha.comuna %> </td>
-        <td><%= ficha.email %></td>
-        <td>
-          <% if ficha.perros.count == 1%>
-            <%= ficha.perros.first.nombre%>
-          <%else%>
-            <%= ficha.perros.count%>
-          <%end%>
-        </td>
-        <td>
-          <% if ficha.gatos.count == 1%>
-            <%= ficha.gatos.first.nombre%>
-          <%else%>
-            <%= ficha.gatos.count%>
-          <%end%>
-        </td>
-        <td><%=ficha.medio_encuentro%><td>
-        <td>
-          <%= link_to ficha, :remote=>true do%>
-            <i class="glyphicon glyphicon-eye-open"></i>
-          <%end%>
-        </td>
-        <td>
-          <%= link_to edit_ficha_path(ficha) do%>
-            <i class="glyphicon glyphicon-edit"></i>
-          <%end%>
-        </td>
-        <td>
-          <%= link_to ficha, method: :delete, data: { confirm: '¿Esta seguro de eliminar la ficha?' } do%>
-            <i class="glyphicon glyphicon-remove"></i>
-          <%end%>
-        </td>
+        <th>Propietario</th>
+        <th>Tipo</th>
+        <th>Edad</th>
+        <th>Rut</th>
+        <th>Telefono</th>
+        <th>Direccion</th>
+        <th>Email</th>
+        <th>Perros</th>
+        <th>Gatos</th>
+        <th>Se entero por</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @fichas.each do |ficha| %>
+        <tr>
+          <td><%= ficha.nombre %></td>
+          <td><%= ficha.tipo %></td>
+          <td><%= ficha.edad %></td>
+          <td><%= ficha.rut %></td>
+          <td><%= ficha.telefono %></td>
+          <td><%= ficha.direccion %>, <%= ficha.comuna %> </td>
+          <td><%= ficha.email %></td>
+          <td>
+            <% if ficha.perros.count == 1%>
+              <%= ficha.perros.first.nombre%>
+            <%else%>
+              <%= ficha.perros.count%>
+            <%end%>
+          </td>
+          <td>
+            <% if ficha.gatos.count == 1%>
+              <%= ficha.gatos.first.nombre%>
+            <%else%>
+              <%= ficha.gatos.count%>
+            <%end%>
+          </td>
+          <td><%=ficha.medio_encuentro%><td>
+          <td>
+            <%= link_to ficha, :remote=>true do%>
+              <i class="glyphicon glyphicon-eye-open"></i>
+            <%end%>
+          </td>
+          <td>
+            <%= link_to edit_ficha_path(ficha) do%>
+              <i class="glyphicon glyphicon-edit"></i>
+            <%end%>
+          </td>
+          <td>
+            <%= link_to ficha, method: :delete, data: { confirm: '¿Esta seguro de eliminar la ficha?' } do%>
+              <i class="glyphicon glyphicon-remove"></i>
+            <%end%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 <%= link_to 'Ver perros ', perros_path %>(<%=Perro.count%>)|

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :medicamentos
   resources :veterinarios
   resources :enfermedades
   resources :vacunas

@@ -13,6 +13,7 @@ class GatosController < ApplicationController
   def show
     respond_to do |f|
       f.js
+      f.pdf{ render template: 'gatos/ficha', pdf:'Ficha' }
     end
   end
 

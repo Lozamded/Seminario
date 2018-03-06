@@ -151,6 +151,12 @@
               <%= @gato.complicaciones %>
             <p>
 
+            <p>
+              <strong>PDF:</strong>
+              <%= link_to "Get PDF", gato_path(format: :pdf) %>
+            <p>
+            
+
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
