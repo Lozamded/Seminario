@@ -9,6 +9,8 @@ class GatosController < ApplicationController
     respond_to do |f|
       f.html
       f.pdf{ render template: 'gatos/ficha', pdf:'Ficha' }
+      f.csv{ send_data @gatos.to_csv}
+      f.xls # { send_data @gatos.to_csv(col_sep: "\t") }
     end
   end
 

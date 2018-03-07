@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Nombre</Data></Cell>
+        <Cell><Data ss:Type="String">Edad</Data></Cell>
+        <Cell><Data ss:Type="String">Sexo</Data></Cell>
+        <Cell><Data ss:Type="String">Raza</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo</Data></Cell>
+        <Cell><Data ss:Type="String">Peso</Data></Cell>
+        <Cell><Data ss:Type="String">Porte</Data></Cell>
+        <Cell><Data ss:Type="String">Chip</Data></Cell>
+        <Cell><Data ss:Type="String">Numero chip</Data></Cell>
+        <Cell><Data ss:Type="String">Agresividad</Data></Cell>
+        <Cell><Data ss:Type="String">Vacunas</Data></Cell>
+        <Cell><Data ss:Type="String">Enfermedades</Data></Cell>
+        <Cell><Data ss:Type="String">Propietario</Data></Cell>
+        <Cell><Data ss:Type="String">Apto operación</Data></Cell>
+        <Cell><Data ss:Type="String">Veterinario</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo cirugía</Data></Cell>
+        <Cell><Data ss:Type="String">Hora ingreso</Data></Cell>
+        <Cell><Data ss:Type="String">Hora alta</Data></Cell>
+        <Cell><Data ss:Type="String">Medicamentos</Data></Cell>
+      </Row>
+
+        <% @perros.each do |perro| %>
+            <% vet = Veterinario.where(id: perro.veterinario_id).first %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= perro.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= perro.nombre %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= perro.edad %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= perro.sexo %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= perro.raza %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= perro.tipo %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= perro.peso %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= perro.porte %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= perro.chip %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= perro.numero_chip %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= perro.agresividad %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= perro.vacunas.count %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= perro.enfermedades.count %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= perro.ficha.nombre %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= perro.apto_cirujia%></Data></Cell>
+        <Cell><Data ss:Type="String"><% if vet != nil %><%= vet.nombre %><%end%></Data></Cell>
+        <Cell><Data ss:Type="String"><%= perro.tipo_cirujia%></Data></Cell>
+        <Cell><Data ss:Type="String"><%if perro.hora_ingreso != nil %><%= perro.hora_ingreso.strftime("%H:%M") %><%end%></Data></Cell>
+        <Cell><Data ss:Type="String"><%if perro.hora_alta != nil %><%= perro.hora_alta.strftime("%H:%M") %><%end%></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= perro.medicamentos.count %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+
+ 
+  
+  
+

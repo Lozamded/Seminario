@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ficha clinica</title>
+  <%= wicked_pdf_stylesheet_link_tag "application" -%>
+</head>
+<body>
+
+  <div class='container'>
+    <h3><strong>Ficha clinica de perro<strong></h3>
+  </div>
+
+</body>
+</html>
+
+<p>
+    <strong>Numero de ficha:</strong>
+    <%= @perro.id %>
+</p>
+
+
+<p>
+<strong>Paciente:</strong>
+<%= @perro.nombre %>
+</p>
+
+<p>
+<strong>Edad:</strong>
+<%= @perro.edad %>
+</p>
+
+<p>
+<strong>Sexo:</strong>
+<%= @perro.sexo %>
+</p>
+
+<p>
+<strong>Raza:</strong>
+<%= @perro.raza %>
+</p>
+
+<p>
+<strong>Peso:</strong>
+<%= @perro.peso %>
+</p>
+
+<p>
+<strong>Porte:</strong>
+<%= @perro.porte %>
+</p>
+
+<p>
+<strong>Chip:</strong>
+<%= @perro.chip %>
+</p>
+
+<p>
+<strong>Numero chip:</strong>
+<%= @perro.numero_chip %>
+</p>
+
+<p>
+<strong>Agresividad:</strong>
+<%= @perro.agresividad %>
+</p>
+
+<p>
+<strong>Señas:</strong>
+<%= @perro.senas %>
+</p>
+
+<p>
+<strong>Vacunas:</strong>
+<% if @perro.vacunas.any? %>
+    <ul>
+        <%@perro.vacunas.each do |vacuna|%>
+        <li>
+            <%= vacuna.nombre%>
+        </li>
+        <%end%>
+    </ul>
+<%else%>
+Sin Vacunas
+<% end %>
+</p>
+
+<p>
+<strong>Enfermedades:</strong>
+<% if @perro.enfermedades.any? %>
+    <ul>
+    <%@perro.enfermedades.each do |enfermedad|%>
+        <li>
+            <%= enfermedad.nombre%>
+        </li>
+    <%end%>
+    </ul>
+<%else%>
+Animal sano
+<% end %>
+</p>
+<p>
+<strong>Comentario:</strong>
+<%= @perro.comentario %>
+</p>
+
+<p>
+<strong>Propietario:</strong>
+<%= @perro.ficha.nombre %>
+</p>
+
+<h3><strong>Datos de cirugía</strong></h3>
+<br>
+
+<p>
+<strong>Apto para la cirugía:</strong>
+<%= @perro.apto_cirujia %>
+</p>
+
+<p>
+<strong>Veterinario cirugía:</strong>
+<% vet = Veterinario.where(id: @perro.veterinario_id).first %>
+<% if vet != nil %>
+<%=  vet.nombre %>
+<%else%>
+No asignado
+<%end%>
+</p>
+
+</p>
+<strong>Hora ingreso:</strong>
+<%if @perro.hora_ingreso != nil %>
+<%= @perro.hora_ingreso.strftime("%H:%M") %>
+<%else%>
+No ingresado
+<%end%>
+</p>
+
+<p>
+<strong>Hora alta medica:</strong>
+<%if @perro.hora_alta != nil %>
+<%= @perro.hora_alta.strftime("%H:%M") %>
+<%else%>
+No ingresado
+<%end%>
+</p>
+
+<p>
+<strong>Hallazgos:</strong>
+<%= @perro.hallazgos %>
+</p>
+
+<p>
+<strong>Complicaciones:</strong>
+<%= @perro.complicaciones %>
+</p>
+
+
+<p>
+  <h3><strong>Receta:</strong></h3>
+  <% if @perro.medicamentos.any? %>
+      <ul>
+        <%@perro.medicamentos.each do |medicamento|%>
+            <li>
+              <%= medicamento.nombre%>,<%= medicamento.cantidad%>,<%= medicamento.unidad%>
+              <%= medicamento.frecuencia%>
+            </li>
+        <%end%>
+      </ul>
+  <%else%>
+  No se añadieron insumos a la reseta
+  <% end %>
+</p>

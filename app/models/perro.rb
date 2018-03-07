@@ -17,4 +17,14 @@ class Perro < ApplicationRecord
   accepts_nested_attributes_for :medicamentos,
                                 reject_if: proc{ |attributes| attributes['nombre'].blank? },
                                 allow_destroy: true
+
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |gato|
+        csv << gato.attributes.values_at(*column_names)
+      end
+    end
+  end
+  
 end

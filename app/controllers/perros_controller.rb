@@ -6,6 +6,12 @@ class PerrosController < ApplicationController
   # GET /perros.json
   def index
     @perros = Perro.all
+    respond_to do |f|
+      f.html
+      f.pdf{ render template: 'perros/ficha', pdf:'Ficha' }
+      f.csv{ send_data @perros.to_csv}
+      f.xls 
+    end
   end
 
   # GET /perros/1
@@ -13,6 +19,7 @@ class PerrosController < ApplicationController
   def show
     respond_to do |f|
       f.js
+      f.pdf{ render template: 'perros/ficha', pdf:'Ficha' }
     end
   end
 

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ficha clinica</title>
+  <%= wicked_pdf_stylesheet_link_tag "application" -%>
+</head>
+<body>
+
+  <div class='container'>
+    <h3><strong>Ficha clinica de gato<strong></h3>
+  </div>
+
+</body>
+</html>
+
+<p>
+    <strong>Numero de ficha:</strong>
+    <%= @gato.id %>
+</p>
+
+
+<p>
+<strong>Paciente:</strong>
+<%= @gato.nombre %>
+</p>
+
+<p>
+<strong>Edad:</strong>
+<%= @gato.edad %>
+</p>
+
+<p>
+<strong>Sexo:</strong>
+<%= @gato.sexo %>
+</p>
+
+<p>
+<strong>Raza:</strong>
+<%= @gato.raza %>
+</p>
+
+<p>
+<strong>Peso:</strong>
+<%= @gato.peso %>
+</p>
+
+<p>
+<strong>Porte:</strong>
+<%= @gato.porte %>
+</p>
+
+<p>
+<strong>Chip:</strong>
+<%= @gato.chip %>
+</p>
+
+<p>
+<strong>Numero chip:</strong>
+<%= @gato.numero_chip %>
+</p>
+
+<p>
+<strong>Agresividad:</strong>
+<%= @gato.agresividad %>
+</p>
+
+<p>
+<strong>Señas:</strong>
+<%= @gato.senas %>
+</p>
+
+<p>
+<strong>Vacunas:</strong>
+<% if @gato.vacunas.any? %>
+    <%if @gato.vacunas.first.nombre == 'Propietario desconoce'%>
+        Se desconoce si posee vacunas
+    <%else%>
+    <ul>
+        <%@gato.vacunas.each do |vacuna|%>
+        <li>
+            <%= vacuna.nombre%>
+        </li>
+        <%end%>
+    </ul>
+    <%end%>
+<%else%>
+Sin Vacunas
+<% end %>
+</p>
+
+<p>
+<strong>Enfermedades:</strong>
+<% if @gato.enfermedades.any? %>
+    <ul>
+    <%@gato.enfermedades.each do |enfermedad|%>
+        <li>
+            <%= enfermedad.nombre%>
+        </li>
+    <%end%>
+    </ul>
+<%else%>
+Animal sano
+<% end %>
+</p>
+<p>
+<strong>Comentario:</strong>
+<%= @gato.comentario %>
+</p>
+
+<p>
+<strong>Propietario:</strong>
+<%= @gato.ficha.nombre %>
+</p>
+
+<h3><strong>Datos de cirugía</strong></h3>
+<br>
+
+<p>
+<strong>Apto para la cirugía:</strong>
+<%= @gato.apto_cirujia %>
+</p>
+
+<p>
+<strong>Veterinario cirugía:</strong>
+<% vet = Veterinario.where(id: @gato.veterinario_id).first %>
+<% if vet != nil %>
+<%=  vet.nombre %>
+<%else%>
+No asignado
+<%end%>
+</p>
+
+</p>
+<strong>Hora ingreso:</strong>
+<%if @gato.hora_ingreso != nil %>
+<%= @gato.hora_ingreso.strftime("%H:%M") %>
+<%else%>
+No ingresado
+<%end%>
+</p>
+
+<p>
+<strong>Hora alta medica:</strong>
+<%if @gato.hora_alta != nil %>
+<%= @gato.hora_alta.strftime("%H:%M") %>
+<%else%>
+No ingresado
+<%end%>
+</p>
+
+<p>
+<strong>Hallazgos:</strong>
+<%= @gato.hallazgos %>
+</p>
+
+<p>
+<strong>Complicaciones:</strong>
+<%= @gato.complicaciones %>
+</p>
+
+
+<p>
+  <h3><strong>Receta:</strong></h3>
+  <% if @gato.medicamentos.any? %>
+      <ul>
+        <%@gato.medicamentos.each do |medicamento|%>
+            <li>
+              <%= medicamento.nombre%>,<%= medicamento.cantidad%>,<%= medicamento.unidad%>
+              <%= medicamento.frecuencia%>
+            </li>
+        <%end%>
+      </ul>
+  <%else%>
+  No se añadieron insumos a la reseta
+  <% end %>
+</p>

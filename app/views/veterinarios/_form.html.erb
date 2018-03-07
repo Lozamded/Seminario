@@ -31,11 +31,20 @@
     <%= form.date_field :fecha_nacimiento, id: :veterinario_fecha_nacimiento %>
   </div>
 
- 
 
   <div class="tipo">
     <%= form.label :tipo %>
     <%= form.select :tipo, ['Invitado','Stuka','Spay Mexico','Asistente'], {include_blank: "Seleccione"} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :casa_estudios %>
+    <%= form.text_field :casa_estudios, id: :veterinario_casa_estudios %>
+  </div>
+
+  <div class="tipo">
+    <%= form.label :tipo_estudios %>
+    <%= form.select :tipo_estudios, ['Universitarios','Tecnicos'], {include_blank: "Seleccione"} %>
   </div>
 
   <div class="field">

@@ -5,6 +5,12 @@ class VeterinariosController < ApplicationController
   # GET /veterinarios.json
   def index
     @veterinarios = Veterinario.all
+    respond_to do |f|
+      f.html
+      f.pdf{ render template: 'gatos/ficha', pdf:'Ficha' }
+      f.csv{ send_data @gatos.to_csv}
+      f.xls 
+    end
   end
 
   # GET /veterinarios/1
@@ -72,6 +78,6 @@ class VeterinariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def veterinario_params
-      params.require(:veterinario).permit(:nombre, :sexo, :fecha_nacimiento, :rut, :tipo, :especialidad)
+      params.require(:veterinario).permit(:nombre, :sexo, :fecha_nacimiento,:casa_estudios, :tipo_estudios, :rut, :tipo, :especialidad)
     end
-end
+end 

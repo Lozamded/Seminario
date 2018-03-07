@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Nombre</Data></Cell>
+        <Cell><Data ss:Type="String">Sexo</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha nacimiento</Data></Cell>
+        <Cell><Data ss:Type="String">Rut</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo</Data></Cell>
+        <Cell><Data ss:Type="String">Casa estudios</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo estudios</Data></Cell>
+        <Cell><Data ss:Type="String">Perros</Data></Cell>
+        <Cell><Data ss:Type="String">Gatos</Data></Cell>
+      </Row>
+
+        <% @veterinarios.each do |veterinario| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= veterinario.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= veterinario.nombre %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= veterinario.sexo %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= veterinario.fecha_nacimiento %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= veterinario.rut %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= veterinario.tipo %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= veterinario.casa_estudios %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= veterinario.tipo_estudios %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= veterinario.perros.count %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= veterinario.gatos.count %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+
+ 
+  
+  
+

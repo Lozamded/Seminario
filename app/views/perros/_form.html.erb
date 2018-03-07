@@ -164,6 +164,25 @@
       <%= f.text_area :complicaciones, id: :perro_complicaciones%>
     </div>
 
+      <h4><strong>Receta</strong></h4><br>
+
+      <div id="Receta" >
+          <div class="recetas-fields">
+          <%= f.fields_for :medicamentos do |medicamento| %>
+              <%= render "recetas_fields", f: medicamento %>
+          <% end %>
+          </div>
+      </div>
+
+      <strong>
+          <div class="links">
+          <%= link_to_add_association 'Añadir Medicamento', f, :medicamentos,
+          'data-association-insertion-node' =>  '.recetas-fields',
+          'data-association-insertion-method' => 'append', :class => 'btn_regular',
+          partial: 'recetas_fields' %>
+          </div>
+      </strong><br>
+
   <div class="actions">
     <%= f.submit %>
   </div>

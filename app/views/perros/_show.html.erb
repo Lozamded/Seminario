@@ -65,17 +65,13 @@
             <p>
               <strong>Vacunas:</strong>
               <% if @perro.vacunas.any? %>
-                <%if @perro.vacunas.first.nombre == 'Propietario desconoce'%>
-                  Se desconoce si posee vacunas
-                <%else%>
-                  <ul>
-                    <%@perro.vacunas.each do |vacuna|%>
-                      <li>
-                        <%= vacuna.nombre%>
-                      </li>    
-                    <%end%>
-                  </ul>
-                <%end%>     
+                <ul>
+                  <%@perro.vacunas.each do |vacuna|%>
+                    <li>
+                      <%= vacuna.nombre%>
+                    </li>    
+                  <%end%>
+                </ul>
               <%else%>
               Sin Vacunas
               <% end %>
@@ -146,7 +142,31 @@
               <strong>Complicaciones:</strong>
               <%= @perro.complicaciones %>
             <p>
+            
+            <p>
+              <strong>Receta:</strong>
+              <% if @perro.medicamentos.any? %>
+                  <ul>
+                    <%@perro.medicamentos.each do |medicamento|%>
+                        <li>
+                          <%= medicamento.nombre%>,<%= medicamento.cantidad%>,<%= medicamento.unidad%>
+                          <%= medicamento.frecuencia%>
+                        </li>
+                    <%end%>
+                  </ul>
+              <%else%>
+              No se añadieron insumos a la reseta
+              <% end %>
+            </p>
 
+            <p>
+              <strong>PDF:</strong>
+              <%= link_to "Get PDF", perro_path(format: :pdf) %>
+            <p>
+
+            <%= link_to edit_perro_path(@perro) do %>
+              <button type="button" class="btn btn-default">Editar</button>
+            <%end%>
 
         </div>
       <div class="modal-footer">

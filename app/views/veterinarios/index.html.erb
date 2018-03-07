@@ -16,6 +16,8 @@
         <th>Fecha nacimiento</th>
         <th>Rut</th>
         <th>Tipo</th>
+        <th>Casa estudios</th>
+        <th>Tipo estudios</th>
         <th>Perros</th>
         <th>Gatos</th->
         <th colspan="3"></th>
@@ -30,6 +32,8 @@
           <td><%= veterinario.fecha_nacimiento %></td>
           <td><%= veterinario.rut %></td>
           <td><%= veterinario.tipo %></td>
+          <td><%= veterinario.casa_estudios %></td>
+          <td><%= veterinario.tipo_estudios %></td>
           <td>
             <%= Perro.where(veterinario_id: veterinario.id).count %>
           </td>
@@ -47,7 +51,14 @@
 
 <br>
 
+<p>
+  Descargar:
+  <%= link_to "CSV", veterinarios_path(format: "csv") %> |
+  <%= link_to "Excel", veterinarios_path(format: "xls") %>
+</p>
+
 <%= link_to 'Volver', fichas_path %>
+
 
 <div id ="new-veterinario" style = "display:noone;"></div>
 <div id ="edit-veterinario" style = "display:noone;"></div>
