@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306172152) do
+ActiveRecord::Schema.define(version: 20180307034527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,11 @@ ActiveRecord::Schema.define(version: 20180306172152) do
     t.text "frecuencia"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "gato_id"
+    t.bigint "perro_id"
+    t.string "unidad"
+    t.index ["gato_id"], name: "index_medicamentos_on_gato_id"
+    t.index ["perro_id"], name: "index_medicamentos_on_perro_id"
   end
 
   create_table "perros", force: :cascade do |t|
@@ -153,6 +158,8 @@ ActiveRecord::Schema.define(version: 20180306172152) do
   add_foreign_key "enfermedades", "perros"
   add_foreign_key "gatos", "fichas"
   add_foreign_key "gatos", "veterinarios"
+  add_foreign_key "medicamentos", "gatos"
+  add_foreign_key "medicamentos", "perros"
   add_foreign_key "perros", "fichas"
   add_foreign_key "perros", "veterinarios"
   add_foreign_key "vacunas", "gatos"

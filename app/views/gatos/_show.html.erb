@@ -61,7 +61,7 @@
             <strong>Señas:</strong>
             <%= @gato.senas %>
             </p>
-            
+
             <p>
               <strong>Vacunas:</strong>
               <% if @gato.vacunas.any? %>
@@ -95,6 +95,7 @@
               Animal sano
               <% end %>
             </p>
+
             <p>
             <strong>Comentario:</strong>
             <%= @gato.comentario %>
@@ -152,10 +153,27 @@
             <p>
 
             <p>
+              <strong>Receta:</strong>
+              <% if @gato.medicamentos.any? %>
+                  <ul>
+                    <%@gato.medicamentos.each do |medicamento|%>
+                        <li>
+                          <%= medicamento.nombre%>,<%= medicamento.cantidad%>,<%= medicamento.unidad%>
+                          <%= medicamento.frecuencia%>
+                        </li>
+                    <%end%>
+                  </ul>
+              <%else%>
+              No se añadieron insumos a la reseta
+              <% end %>
+            </p>
+
+
+            <p>
               <strong>PDF:</strong>
               <%= link_to "Get PDF", gato_path(format: :pdf) %>
             <p>
-            
+
 
         </div>
       <div class="modal-footer">

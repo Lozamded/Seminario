@@ -11,4 +11,9 @@ class Gato < ApplicationRecord
   accepts_nested_attributes_for :enfermedades,
                                 reject_if: proc{ |attributes| attributes['nombre'].blank? },
                                 allow_destroy: true
+
+  has_many :medicamentos, dependent: :destroy
+  accepts_nested_attributes_for :medicamentos,
+                                reject_if: proc{ |attributes| attributes['nombre'].blank? },
+                                allow_destroy: true
 end

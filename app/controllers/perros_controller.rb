@@ -1,7 +1,7 @@
 class PerrosController < ApplicationController
   before_action :set_perro, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  
+
   # GET /perros
   # GET /perros.json
   def index
@@ -75,6 +75,6 @@ class PerrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def perro_params
-      params.require(:perro).permit(:nombre, :edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :comentario, :ficha_id, :veterinario_id, :apto_cirujia, :apto_cirujia_text, :medico_tratante, :hora_ingreso, :tipo_cirujia, :hallazgos, :hora_alta, :complicaciones, vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy], veterinarios_attributes:[:id,:nombre,:_destroy])
+      params.require(:perro).permit(:nombre, :edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :comentario, :ficha_id, :veterinario_id, :apto_cirujia, :apto_cirujia_text, :medico_tratante, :hora_ingreso, :tipo_cirujia, :hallazgos, :hora_alta, :complicaciones, vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy], veterinarios_attributes:[:id,:nombre,:_destroy],medicamentos_attributes:[:id,:nombre,:cantidad,:unidad,:frecuencia,:_destroy])
     end
 end

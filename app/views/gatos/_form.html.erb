@@ -127,8 +127,8 @@
       <%= f.select :apto_cirujia   , ['Si','No'] %><br>
       <% f.label :apto_cirujia_text %><strong>Razón:</strong>(Opcional) <br>
       <%= f.text_area :apto_cirujia_text, id: :gato_cirujia_text %>
-    </div>  
-    
+    </div>
+
     <div class="field">
       <%= f.label :veterinario_id %>
       <%= f.collection_select :veterinario_id, Veterinario.order(:nombre), :id, :nombre  %>
@@ -165,6 +165,24 @@
       <%= f.text_area :complicaciones, id: :gato_complicaciones%>
     </div>
 
+         <h4><strong>Receta</strong></h4><br>
+
+         <div id="Receta" >
+             <div class="recetas-fields">
+             <%= f.fields_for :medicamentos do |medicamento| %>
+                 <%= render "recetas_fields", f: medicamento %>
+             <% end %>
+             </div>
+         </div>
+
+         <strong>
+             <div class="links">
+             <%= link_to_add_association 'Añadir Medicamento', f, :medicamentos,
+             'data-association-insertion-node' =>  '.recetas-fields',
+             'data-association-insertion-method' => 'append', :class => 'btn_regular',
+             partial: 'recetas_fields' %>
+             </div>
+         </strong><br>
 
   <div class="actions">
     <%= f.submit %>

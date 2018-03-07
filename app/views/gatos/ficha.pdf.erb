@@ -15,6 +15,12 @@
 </html>
 
 <p>
+<strong>Numero de ficha:</strong>
+<%= @gato.id %>
+</p>
+
+
+<p>
 <strong>Paciente:</strong>
 <%= @gato.nombre %>
 </p>
@@ -151,4 +157,21 @@ No ingresado
 <p>
 <strong>Complicaciones:</strong>
 <%= @gato.complicaciones %>
+</p>
+
+
+<p>
+  <h3><strong>Receta:</strong></h3>
+  <% if @gato.medicamentos.any? %>
+      <ul>
+        <%@gato.medicamentos.each do |medicamento|%>
+            <li>
+              <%= medicamento.nombre%>,<%= medicamento.cantidad%>,<%= medicamento.unidad%>
+              <%= medicamento.frecuencia%>
+            </li>
+        <%end%>
+      </ul>
+  <%else%>
+  No se añadieron insumos a la reseta
+  <% end %>
 </p>

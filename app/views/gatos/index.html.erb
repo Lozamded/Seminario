@@ -30,6 +30,7 @@
         <th>Tipo cirugía</th>
         <th>Hora ingreso</th>
         <th>Hora alta</th>
+        <th>Medicamentos</th>
       </tr>
     </thead>
 
@@ -50,7 +51,7 @@
           <td><%= gato.enfermedades.count %></td>
           <td><%= gato.ficha.nombre %></td>
           <td><%= gato.apto_cirujia%></td>
-          <td>              
+          <td>
             <% vet = Veterinario.where(id: gato.veterinario_id).first %>
               <% if vet != nil %>
                 <%=  vet.nombre %>
@@ -67,6 +68,7 @@
                   <%= gato.hora_alta.strftime("%H:%M") %>
                 <%end%>
           </td>
+          <td><%= gato.medicamentos.count %></td>
           <td><%= link_to  gato, :remote=>true do%><i class="glyphicon glyphicon-eye-open"></i><%end%></td>
           <td><%= link_to  edit_gato_path(gato) do%><i class="glyphicon glyphicon-edit"></i><%end%></td>
           <td><%= link_to  gato, method: :delete, data: { confirm: 'Are you sure?' } do%><i class="glyphicon glyphicon-remove"></i><%end%></td>

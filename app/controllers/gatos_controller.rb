@@ -1,7 +1,7 @@
 class GatosController < ApplicationController
   before_action :set_gato, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  
+
   # GET /gatos
   # GET /gatos.json
   def index
@@ -80,6 +80,6 @@ class GatosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gato_params
-      params.require(:gato).permit(:nombre, :edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :comentario, :ficha_id, :veterinario_id, :apto_cirujia, :apto_cirujia_text, :medico_tratante, :hora_ingreso, :tipo_cirujia, :hallazgos, :hora_alta, :complicaciones,vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy],veterinario_atributes:[:id,:nombre,:_destroy])
+      params.require(:gato).permit(:nombre, :edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :comentario, :ficha_id, :veterinario_id, :apto_cirujia, :apto_cirujia_text, :medico_tratante, :hora_ingreso, :tipo_cirujia, :hallazgos, :hora_alta, :complicaciones,vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy],veterinario_atributes:[:id,:nombre,:_destroy],medicamentos_attributes:[:id,:nombre,:cantidad,:unidad,:frecuencia,:_destroy])
     end
 end
