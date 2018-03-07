@@ -22,9 +22,9 @@ class Perro < ApplicationRecord
     CSV.generate(options) do |csv|
       csv << column_names
       all.each do |gato|
-        csv << gato.attributes.values_at(*column_names)
+        csv << perro.attributes.values_at(*column_names)
       end
     end
   end
-  
+
 end

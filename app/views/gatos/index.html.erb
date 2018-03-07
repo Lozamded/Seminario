@@ -9,8 +9,13 @@
 <br><br>
 
 <div class="table-responsive">
-  <table class="table-bordered">
+  <table class="table-bordered" id="tabla-gatos">
     <thead class="thead-dark">
+      <i class="glyphicon glyphicon-search"><strong>Buscar</strong>
+        <p>
+          <input type="text" class="form-control" id="tabla-gatos-filter" data-action="filter" data-filters="#tabla-gatos" placeholder="Ingrese parametro"/>
+        </p>
+      </i>
       <tr>
         <th>Nombre</th>
         <th>Edad</th>

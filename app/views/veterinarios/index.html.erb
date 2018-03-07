@@ -8,9 +8,14 @@
 <br><br>
 
 <div class="table-responsive">
-  <table class="table-bordered">
+  <table class="table-bordered" id="tabla-veterinarios">
     <thead class="thead-dark">
       <tr>
+        <i class="glyphicon glyphicon-search"><strong>Buscar</strong>
+          <p>
+            <input type="text" class="form-control" id="tabla-veterinarios-filter" data-action="filter" data-filters="#tabla-veterinarios" placeholder="Ingrese parametro"/>
+          </p>
+        </i>
         <th>Nombre</th>
         <th>Sexo</th>
         <th>Fecha nacimiento</th>

@@ -8,8 +8,8 @@ class VeterinariosController < ApplicationController
     respond_to do |f|
       f.html
       f.pdf{ render template: 'gatos/ficha', pdf:'Ficha' }
-      f.csv{ send_data @gatos.to_csv}
-      f.xls 
+      f.csv{ send_data @veterinarios.to_csv}
+      f.xls
     end
   end
 
@@ -80,4 +80,4 @@ class VeterinariosController < ApplicationController
     def veterinario_params
       params.require(:veterinario).permit(:nombre, :sexo, :fecha_nacimiento,:casa_estudios, :tipo_estudios, :rut, :tipo, :especialidad)
     end
-end 
+end

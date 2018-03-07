@@ -8,8 +8,13 @@
 <br><br>
 
 <div class="table-responsive">
-  <table class="table-bordered">
+  <table class="table-bordered" id="tabla-perros">
     <thead class="thead-dark">
+      <i class="glyphicon glyphicon-search"><strong>Buscar</strong>
+        <p>
+          <input type="text" class="form-control" id="tabla-perros-filter" data-action="filter" data-filters="#tabla-perros" placeholder="Ingrese parametro"/>
+        </p>
+      </i>
       <tr>
         <th>Nombre</th>
         <th>Edad</th>
@@ -51,7 +56,7 @@
           <td><%= perro.enfermedades.count %></td>
           <td><%= perro.ficha.nombre %></td>
           <td><%= perro.apto_cirujia%></td>
-          <td>              
+          <td>
             <% vet = Veterinario.where(id: perro.veterinario_id).first %>
               <% if vet != nil %>
                 <%=  vet.nombre %>
