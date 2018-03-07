@@ -40,6 +40,9 @@
               <%= @veterinario.especialidad %>
             </p>
 
+            <h3><strong>Pacientes</strong></h3>
+            <br>
+
             <p>
               <strong>Perros:</strong>
               <% perros = Perro.where(veterinario_id: @veterinario.id) %>
@@ -71,3 +74,4 @@
       </div>
     </div>
   </div>
+</div>
