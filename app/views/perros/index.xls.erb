@@ -21,6 +21,7 @@
         <Cell><Data ss:Type="String">Vacunas</Data></Cell>
         <Cell><Data ss:Type="String">Enfermedades</Data></Cell>
         <Cell><Data ss:Type="String">Propietario</Data></Cell>
+        <Cell><Data ss:Type="String">Propietario es</Data></Cell>
         <Cell><Data ss:Type="String">Apto operación</Data></Cell>
         <Cell><Data ss:Type="String">Veterinario</Data></Cell>
         <Cell><Data ss:Type="String">Tipo cirugía</Data></Cell>
@@ -46,6 +47,7 @@
         <Cell><Data ss:Type="Number"><%= perro.vacunas.count %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= perro.enfermedades.count %></Data></Cell>
         <Cell><Data ss:Type="String"><%= perro.ficha.nombre %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= perro.propietario_es %></Data></Cell>
         <Cell><Data ss:Type="String"><%= perro.apto_cirujia%></Data></Cell>
         <Cell><Data ss:Type="String"><% if vet != nil %><%= vet.nombre %><%end%></Data></Cell>
         <Cell><Data ss:Type="String"><%= perro.tipo_cirujia%></Data></Cell>

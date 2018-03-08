@@ -21,6 +21,7 @@
         <Cell><Data ss:Type="String">Vacunas</Data></Cell>
         <Cell><Data ss:Type="String">Enfermedades</Data></Cell>
         <Cell><Data ss:Type="String">Propietario</Data></Cell>
+        <Cell><Data ss:Type="String">Propietario es</Data></Cell>
         <Cell><Data ss:Type="String">Apto operación</Data></Cell>
         <Cell><Data ss:Type="String">Veterinario</Data></Cell>
         <Cell><Data ss:Type="String">Tipo cirugía</Data></Cell>
@@ -46,6 +47,7 @@
         <Cell><Data ss:Type="Number"><%= gato.vacunas.count %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= gato.enfermedades.count %></Data></Cell>
         <Cell><Data ss:Type="String"><%= gato.ficha.nombre %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= gato.propietario_es%></Data></Cell>
         <Cell><Data ss:Type="String"><%= gato.apto_cirujia%></Data></Cell>
         <Cell><Data ss:Type="String"><% if vet != nil %><%= vet.nombre %><%end%></Data></Cell>
         <Cell><Data ss:Type="String"><%= gato.tipo_cirujia%></Data></Cell>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @documento.nombre %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @documento.tipo %>
+</p>
+
+<p>
+  <strong>File:</strong>
+  <%= link_to "Descargar", @documento.file_url %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @documento.link %>
+</p>
+
+<%= link_to 'Edit', edit_documento_path(@documento) %> |
+<%= link_to 'Back', documentos_path %>

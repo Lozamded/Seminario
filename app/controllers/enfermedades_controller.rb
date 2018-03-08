@@ -1,6 +1,7 @@
 class EnfermedadesController < ApplicationController
   before_action :set_enfermedade, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  
   # GET /enfermedades
   # GET /enfermedades.json
   def index

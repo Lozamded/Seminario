@@ -53,6 +53,15 @@
             </p>
 
             <p>
+              <strong>Propietario:</strong>
+              <%= @gato.ficha.nombre %><br>
+              <strong>Propietario rut:</strong>
+              <%= @gato.ficha.rut %><br>
+              <strong>Propietario es:</strong>
+              <%= @gato.propietario_es %>
+            </p>
+
+            <p>
             <strong>Agresividad:</strong>
             <%= @gato.agresividad %>
             </p>
@@ -100,19 +109,20 @@
             <strong>Comentario:</strong>
             <%= @gato.comentario %>
             </p>
-
-            <p>
-            <strong>Propietario:</strong>
-            <%= @gato.ficha.nombre %>
-            </p>
+            
 
             <h3><strong>Datos de cirugía</strong></h3>
             <br>
 
             <p>
-              <strong>Apto para la cirugía:</strong>
-              <%= @gato.apto_cirujia %>
-            <p>
+                <strong>Apto para la cirugía:</strong>
+                <%= @gato.apto_cirujia %>
+                <%if @gato.apto_cirujia == 'No' %>
+                    <br>
+                    <strong>Razon:</strong>
+                    <%= @gato.apto_cirujia_text %>
+                <%end%>
+            </p>
 
             <p>
               <strong>Veterinario cirugía:</strong>

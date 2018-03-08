@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Perros</h1><br>
+<h3>Fichas de Perros</h3><br>
 
 <%= link_to new_perro_path do %>
    <i class=" glyphicon glyphicon-plus-sign  "><strong>Agregar perro</strong></i>
@@ -29,6 +29,7 @@
         <th>Vacunas</th>
         <th>Enfermedades</th>
         <th>Propietario</th>
+        <th>Propietario es</th>
         <th>Apto operación</th>
         <th>Veterinario </th>
         <th>Tipo cirugía</th>
@@ -55,6 +56,7 @@
           <td><%= perro.vacunas.count %></td>
           <td><%= perro.enfermedades.count %></td>
           <td><%= perro.ficha.nombre %></td>
+          <td><%= perro.propietario_es %></td>
           <td><%= perro.apto_cirujia%></td>
           <td>
             <% vet = Veterinario.where(id: perro.veterinario_id).first %>

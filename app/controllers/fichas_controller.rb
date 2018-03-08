@@ -6,6 +6,12 @@ class FichasController < ApplicationController
   # GET /fichas.json
   def index
     @fichas = Ficha.all
+    respond_to do |f|
+      f.html
+      f.pdf{ render template: 'gatos/ficha', pdf:'Ficha' }
+      f.csv{ send_data @fichas.to_csv}
+      f.xls
+    end
   end
 
   # GET /fichas/1

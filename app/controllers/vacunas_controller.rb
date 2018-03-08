@@ -1,6 +1,7 @@
 class VacunasController < ApplicationController
   before_action :set_vacuna, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  
   # GET /vacunas
   # GET /vacunas.json
   def index

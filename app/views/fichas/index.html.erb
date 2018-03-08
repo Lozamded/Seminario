@@ -3,7 +3,7 @@
 
 <br/>
 
-<h1>Fichas</h1>
+<h3>Fichas Propietarios y Padrinos</h3>
 <br>
 <%= link_to new_ficha_path  do%>
   <i class=" glyphicon glyphicon-plus-sign"><strong>Nueva ficha</strong></i>
@@ -21,6 +21,7 @@
         <th>Propietario</th>
         <th>Tipo</th>
         <th>Edad</th>
+        <th>Sexo</th>
         <th>Rut</th>
         <th>Telefono</th>
         <th>Direccion</th>
@@ -38,6 +39,7 @@
           <td><%= ficha.nombre %></td>
           <td><%= ficha.tipo %></td>
           <td><%= ficha.edad %></td>
+          <td><%= ficha.sexo %></td>
           <td><%= ficha.rut %></td>
           <td><%= ficha.telefono %></td>
           <td><%= ficha.direccion %>, <%= ficha.comuna %> </td>
@@ -81,11 +83,17 @@
 <br>
 <%= link_to 'Ver perros ', perros_path %>(<%=Perro.count%>)|
 <%= link_to ' Ver gatos', gatos_path %>(<%=Gato.count%>)
-
+<br>
 
 <div id ="new-ficha" style = "display:noone;"></div>
 <div id ="edit-ficha" style = "display:noone;"></div>
 <div id ="show-ficha" style = "display:noone;"></div>
+
+<p>
+  Descargar:
+  <%= link_to "CSV", fichas_path(format: "csv") %> |
+  <%= link_to "Excel", fichas_path(format: "xls") %>
+</p>
 
 
 

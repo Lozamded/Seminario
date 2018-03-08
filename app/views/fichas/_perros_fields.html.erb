@@ -50,6 +50,12 @@
         <%= f.select :agresividad   , ['Nula','Nervioso','Agresivo','Violento'] %>
     </div>
 
+
+    <div class="field">
+        <%= f.label :propietario_es %>
+        <%= f.select :propietario_es, ['Dueño','Padrino'] %>
+    </div>
+
     <div class="field">
         <% f.label :senas %><Strong>Señas<br></strong>
         <%= f.text_area :senas %>

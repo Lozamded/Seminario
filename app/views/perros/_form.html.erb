@@ -33,7 +33,7 @@
 
   <div class="field">
       <%= f.label :tipo %>
-      <%= f.select :tipo, ['Domestico','Callejero','Salvaje']%>
+      <%= f.select :tipo, ['Domestico','Comunitario','Callejero','Salvaje']%>
   </div>
 
   <div class="field">
@@ -42,12 +42,12 @@
   </div>
 
   <div class="field">
-      <% f.label :porte %>Tamaño
+      <% f.label :porte %><strong>Tamaño</strong>
       <%= f.select :porte, ['Pequeño','Mediano','Grande']%>
   </div>
 
   <div class="field">
-    <% f.label :chip %>Origen del chip
+    <% f.label :chip %><strong>Origen del chip</strong>
     <%= f.select :chip, ['Viene con un chip ','Se le instalara el chip'] %>
   </div>
 
@@ -57,7 +57,7 @@
   </div>
 
   <div class="field">
-      <% f.label :agresividad %>Nivel de agresividad
+      <% f.label :agresividad %><strong>Nivel de agresividad</strong>
       <%= f.select :agresividad   , ['Nula','Nervioso','Agresivo','Violento'] %>
   </div>
 
@@ -77,8 +77,14 @@
   </div>
 
   <div class="field">
-    <% f.label :ficha_id %>Propietario
+    <% f.label :ficha_id %><strong>Propietario</strong>
     <%= f.collection_select :ficha_id , Ficha.order(:nombre), :id, :nombre  %>
+  </div>
+
+
+  <div class="field">
+      <%= f.label :propietario_es %>
+      <%= f.select :propietario_es, ['Dueño','Padrino'] %>
   </div>
 
     <h4><strong>Vacunas</strong></h4><br>

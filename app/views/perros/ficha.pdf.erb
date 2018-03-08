@@ -61,8 +61,19 @@
 </p>
 
 <p>
-<strong>Agresividad:</strong>
-<%= @perro.agresividad %>
+    <strong>Propietario:</strong>
+    <%= @perro.ficha.nombre %><br>
+
+    <strong>Propietario rut:</strong>
+    <%= @perro.ficha.rut %><br>
+
+    <strong>Propietario es:</strong>
+    <%= @perro.propietario_es %>
+</p>
+
+<p>
+    <strong>Agresividad:</strong>
+    <%= @perro.agresividad %>
 </p>
 
 <p>
@@ -104,27 +115,28 @@ Animal sano
 <%= @perro.comentario %>
 </p>
 
-<p>
-<strong>Propietario:</strong>
-<%= @perro.ficha.nombre %>
-</p>
 
 <h3><strong>Datos de cirugía</strong></h3>
 <br>
 
 <p>
-<strong>Apto para la cirugía:</strong>
-<%= @perro.apto_cirujia %>
+    <strong>Apto para la cirugía:</strong>
+    <%= @perro.apto_cirujia %>
+    <%if @perro.apto_cirujia == 'No' %>
+        <br>
+        <strong>Razon:</strong>
+        <%= @perro.apto_cirujia_text %>
+    <%end%>
 </p>
 
 <p>
-<strong>Veterinario cirugía:</strong>
-<% vet = Veterinario.where(id: @perro.veterinario_id).first %>
-<% if vet != nil %>
-<%=  vet.nombre %>
-<%else%>
-No asignado
-<%end%>
+    <strong>Veterinario cirugía:</strong>
+    <% vet = Veterinario.where(id: @perro.veterinario_id).first %>
+    <% if vet != nil %>
+        <%=  vet.nombre %>
+    <%else%>
+        No asignado
+    <%end%>
 </p>
 
 </p>

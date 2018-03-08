@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307162517) do
+ActiveRecord::Schema.define(version: 20180308161012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "documentos", force: :cascade do |t|
+    t.string "nombre"
+    t.string "tipo"
+    t.string "file"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "enfermedades", force: :cascade do |t|
     t.string "nombre"
@@ -67,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180307162517) do
     t.time "hora_alta"
     t.text "complicaciones"
     t.bigint "veterinario_id"
+    t.string "propietario_es"
     t.index ["ficha_id"], name: "index_gatos_on_ficha_id"
     t.index ["veterinario_id"], name: "index_gatos_on_veterinario_id"
   end
@@ -110,6 +120,7 @@ ActiveRecord::Schema.define(version: 20180307162517) do
     t.time "hora_alta"
     t.text "complicaciones"
     t.bigint "veterinario_id"
+    t.string "propietario_es"
     t.index ["ficha_id"], name: "index_perros_on_ficha_id"
     t.index ["veterinario_id"], name: "index_perros_on_veterinario_id"
   end
