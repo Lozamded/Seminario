@@ -8,7 +8,7 @@ class FichasController < ApplicationController
     @fichas = Ficha.all
     respond_to do |f|
       f.html
-      f.pdf{ render template: 'gatos/ficha', pdf:'Ficha' }
+      f.pdf{ render template: 'fichas/consentimiento.pdf', pdf:'Consentimiento' }
       f.csv{ send_data @fichas.to_csv}
       f.xls
     end
@@ -19,6 +19,15 @@ class FichasController < ApplicationController
   def show
     respond_to do |f|
       f.js
+      f.pdf{ render template: 'fichas/ficha_propietario', pdf:"Propietario"}
+    end
+  end
+
+  def consentimiento
+    @ficha = Ficha.find(params[:ficha_id])
+    respond_to do |f|
+      #f.pdf{ render template: 'fichas/ficha_propietario', pdf:"Propietario"}
+      f.pdf{ render template: 'fichas/consentimiento.pdf', pdf:"Consentimiento" }
     end
   end
 
@@ -31,7 +40,6 @@ class FichasController < ApplicationController
 
   # GET /fichas/1/edit
   def edit
-
   end
 
   # POST /fichas

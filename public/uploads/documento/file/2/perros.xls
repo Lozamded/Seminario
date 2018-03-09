@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Nombre</Data></Cell>
+        <Cell><Data ss:Type="String">Edad</Data></Cell>
+        <Cell><Data ss:Type="String">Sexo</Data></Cell>
+        <Cell><Data ss:Type="String">Raza</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo</Data></Cell>
+        <Cell><Data ss:Type="String">Peso</Data></Cell>
+        <Cell><Data ss:Type="String">Porte</Data></Cell>
+        <Cell><Data ss:Type="String">Chip</Data></Cell>
+        <Cell><Data ss:Type="String">Numero chip</Data></Cell>
+        <Cell><Data ss:Type="String">Agresividad</Data></Cell>
+        <Cell><Data ss:Type="String">Vacunas</Data></Cell>
+        <Cell><Data ss:Type="String">Enfermedades</Data></Cell>
+        <Cell><Data ss:Type="String">Propietario</Data></Cell>
+        <Cell><Data ss:Type="String">Apto operación</Data></Cell>
+        <Cell><Data ss:Type="String">Veterinario</Data></Cell>
+        <Cell><Data ss:Type="String">Tipo cirugía</Data></Cell>
+        <Cell><Data ss:Type="String">Hora ingreso</Data></Cell>
+        <Cell><Data ss:Type="String">Hora alta</Data></Cell>
+        <Cell><Data ss:Type="String">Medicamentos</Data></Cell>
+      </Row>
+
+      <Row>
+        <Cell><Data ss:Type="Number">1</Data></Cell>
+        <Cell><Data ss:Type="String">Doggy</Data></Cell>
+        <Cell><Data ss:Type="Number">3</Data></Cell>
+        <Cell><Data ss:Type="String">Macho</Data></Cell>
+        <Cell><Data ss:Type="String">salchicha</Data></Cell>
+        <Cell><Data ss:Type="String">Domestico</Data></Cell>
+        <Cell><Data ss:Type="Number">24.0</Data></Cell>
+        <Cell><Data ss:Type="String">Pequeño</Data></Cell>
+        <Cell><Data ss:Type="String">Viene con un chip </Data></Cell>
+        <Cell><Data ss:Type="Number">45556</Data></Cell>
+        <Cell><Data ss:Type="String">Nula</Data></Cell>
+        <Cell><Data ss:Type="Number">3</Data></Cell>
+        <Cell><Data ss:Type="Number">1</Data></Cell>
+        <Cell><Data ss:Type="String">Compadreeee</Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="Number">0</Data></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="Number">2</Data></Cell>
+        <Cell><Data ss:Type="String">cachupin</Data></Cell>
+        <Cell><Data ss:Type="Number"></Data></Cell>
+        <Cell><Data ss:Type="String">Macho</Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String">Domestico</Data></Cell>
+        <Cell><Data ss:Type="Number"></Data></Cell>
+        <Cell><Data ss:Type="String">Pequeño</Data></Cell>
+        <Cell><Data ss:Type="String">Viene con un chip </Data></Cell>
+        <Cell><Data ss:Type="Number"></Data></Cell>
+        <Cell><Data ss:Type="String">Nula</Data></Cell>
+        <Cell><Data ss:Type="Number">0</Data></Cell>
+        <Cell><Data ss:Type="Number">0</Data></Cell>
+        <Cell><Data ss:Type="String">Fulanita</Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="Number">0</Data></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="Number">3</Data></Cell>
+        <Cell><Data ss:Type="String">cachupin</Data></Cell>
+        <Cell><Data ss:Type="Number"></Data></Cell>
+        <Cell><Data ss:Type="String">Macho</Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String">Domestico</Data></Cell>
+        <Cell><Data ss:Type="Number"></Data></Cell>
+        <Cell><Data ss:Type="String">Pequeño</Data></Cell>
+        <Cell><Data ss:Type="String">Viene con un chip </Data></Cell>
+        <Cell><Data ss:Type="Number"></Data></Cell>
+        <Cell><Data ss:Type="String">Nula</Data></Cell>
+        <Cell><Data ss:Type="Number">0</Data></Cell>
+        <Cell><Data ss:Type="Number">0</Data></Cell>
+        <Cell><Data ss:Type="String">Amigo</Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="Number">0</Data></Cell>
+      </Row>
+      <Row>
+        <Cell><Data ss:Type="Number">4</Data></Cell>
+        <Cell><Data ss:Type="String">Chaucha</Data></Cell>
+        <Cell><Data ss:Type="Number"></Data></Cell>
+        <Cell><Data ss:Type="String">Macho</Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String">Domestico</Data></Cell>
+        <Cell><Data ss:Type="Number"></Data></Cell>
+        <Cell><Data ss:Type="String">Pequeño</Data></Cell>
+        <Cell><Data ss:Type="String">Viene con un chip </Data></Cell>
+        <Cell><Data ss:Type="Number"></Data></Cell>
+        <Cell><Data ss:Type="String">Nula</Data></Cell>
+        <Cell><Data ss:Type="Number">0</Data></Cell>
+        <Cell><Data ss:Type="Number">0</Data></Cell>
+        <Cell><Data ss:Type="String">Amigo</Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="String"></Data></Cell>
+        <Cell><Data ss:Type="Number">0</Data></Cell>
+      </Row>
+    </Table>
+  </Worksheet>
+</Workbook>
+
+ 
+  
+  
+

@@ -109,7 +109,7 @@
             <strong>Comentario:</strong>
             <%= @gato.comentario %>
             </p>
-            
+
 
             <h3><strong>Datos de cirugía</strong></h3>
             <br>
@@ -180,8 +180,10 @@
 
 
             <p>
-              <strong>PDF:</strong>
-              <%= link_to "Get PDF", gato_path(format: :pdf) %>
+              <strong>Ficha PDF:</strong>
+              <%= link_to "Get PDF", gato_path(format: :pdf) %><br>
+              <strong>Receta PDF:</strong>
+              <% link_to "Get PDF", gato_path(format: :pdf) %>
             <p>
 
             <%= link_to edit_gato_path(@gato) do %>

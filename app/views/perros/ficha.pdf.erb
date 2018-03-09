@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Ficha clinica</title>
+  <meta charset="utf-8">
+  <title>Ficha clinica</title>
+  <h3><%= wicked_pdf_image_tag('LOGOS STUKA PEQUEÑO') %>  <strong>Ficha clinica de perro<strong></h3>
   <%= wicked_pdf_stylesheet_link_tag "application" -%>
+
 </head>
 <body>
-
-  <div class='container'>
-    <h3><strong>Ficha clinica de perro<strong></h3>
-  </div>
-
-</body>
-</html>
+<br>
 
 <p>
-    <strong>Numero de ficha:</strong>
+    <strong>Numero de folio:</strong>
     <%= @perro.id %>
 </p>
 
@@ -183,3 +179,6 @@ No ingresado
   No se añadieron insumos a la reseta
   <% end %>
 </p>
+
+</body>
+</html>

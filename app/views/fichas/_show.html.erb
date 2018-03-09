@@ -63,14 +63,14 @@
             </p>
 
             <h3><strong>Animales</strong></h3>
-            
+
             <p>
               <strong>Perros:</strong>
               <% if @ficha.perros.any? %>
                   <ul>
                     <%@ficha.perros.each do |perro|%>
                         <li>
-                          <%= link_to perro.nombre, edit_perro_path(perro)%> <%= perro.sexo%>,  <%= perro.tipo%> 
+                          <%= link_to perro.nombre, edit_perro_path(perro)%> <%= perro.sexo%>,  <%= perro.tipo%>
                         </li>
                     <%end%>
                   </ul>
@@ -93,6 +93,13 @@
               Sin gatos
               <% end %>
               </p>
+
+            <p>
+              <strong>Ficha PDF:</strong>
+              <%= link_to "Get PDF", ficha_path(format: :pdf) %><br>
+              <strong>Consentimiento PDF:</strong>
+              <%= link_to "Get PDF", ficha_consentimiento_path(@ficha,format: :pdf) %>
+            </p>
 
           </div>
         <div class="modal-footer">

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ficha clinica</title>
+  <h3><%= wicked_pdf_image_tag('LOGOS STUKA PEQUEÑO') %>  <strong>Ficha de Propietario<strong></h3>
+  <%= wicked_pdf_stylesheet_link_tag "application" -%>
+</head>
+<body>
+  <p>
+      <strong>Nombre:</strong>
+      <%= @ficha.nombre %>
+  </p>
+
+  <p>
+      <strong>Edad:</strong>
+      <%= @ficha.edad %>
+  </p>
+
+  <p>
+      <strong>Rut:</strong>
+      <%= @ficha.rut %>
+  </p>
+
+  <p>
+      <strong>Sexo:</strong>
+      <%= @ficha.sexo %>
+  </p>
+
+  <p>
+      <strong>Tipo:</strong>
+      <%= @ficha.tipo %>
+  </p>
+
+  <p>
+      <strong>Telefono:</strong>
+      <%= @ficha.telefono %>
+  </p>
+
+  <p>
+      <strong>Direccion:</strong>
+      <%= @ficha.direccion %>
+  </p>
+
+  <p>
+      <strong>Comuna:</strong>
+      <%= @ficha.comuna %>
+  </p>
+
+  <p>
+      <strong>Email:</strong>
+      <%= @ficha.email %>
+  </p>
+
+
+  <p>
+      <strong>Medio de encuentro:</strong>
+      <%= @ficha.medio_encuentro %>,
+      <%= @ficha.medio_encuentro_text%>
+  </p>
+
+  <h3><strong>Animales</strong></h3>
+
+  <p>
+    <strong>Perros:</strong>
+    <% if @ficha.perros.any? %>
+        <ul>
+          <%@ficha.perros.each do |perro|%>
+              <li>
+                <%= link_to perro.nombre, edit_perro_path(perro)%> <%= perro.sexo%>,  <%= perro.tipo%>
+              </li>
+          <%end%>
+        </ul>
+    <%else%>
+    Sin perros
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Gatos:</strong>
+    <% if @ficha.gatos.any? %>
+        <ul>
+          <%@ficha.gatos.each do |gato|%>
+              <li>
+              <%= link_to edit_gato_path(gato), data:{ dimiss:"modal" } do%> <%=gato.nombre%> <%end%>, <%= gato.sexo%>, <%= gato.tipo%>
+              </li>
+          <%end%>
+        </ul>
+    <%else%>
+    Sin gatos
+    <% end %>
+    </p>
+
+</body>
+</html>

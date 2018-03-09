@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :gatos
   resources :perros
-  resources :fichas
+  resources :fichas do
+    get 'consentimiento', to: 'fichas#consentimiento'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

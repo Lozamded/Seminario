@@ -58,7 +58,7 @@
 
               <strong>Propietario rut:</strong>
               <%= @perro.ficha.rut %><br>
-              
+
               <strong>Propietario es:</strong>
               <%= @perro.propietario_es %>
             </p>
@@ -72,7 +72,7 @@
             <strong>Señas:</strong>
             <%= @perro.senas %>
             </p>
-            
+
             <p>
               <strong>Vacunas:</strong>
               <% if @perro.vacunas.any? %>
@@ -80,7 +80,7 @@
                   <%@perro.vacunas.each do |vacuna|%>
                     <li>
                       <%= vacuna.nombre%>
-                    </li>    
+                    </li>
                   <%end%>
                 </ul>
               <%else%>
@@ -153,7 +153,7 @@
               <strong>Complicaciones:</strong>
               <%= @perro.complicaciones %>
             <p>
-            
+
             <p>
               <strong>Receta:</strong>
               <% if @perro.medicamentos.any? %>
@@ -165,13 +165,15 @@
                         </li>
                     <%end%>
                   </ul>
-              <%else%> 
+              <%else%>
               No se añadieron insumos a la reseta
               <% end %>
             </p>
 
             <p>
-              <strong>PDF:</strong>
+              <strong>Ficha PDF:</strong>
+              <%= link_to "Get PDF", perro_path(format: :pdf) %><br>
+              <strong>Receta PDF:</strong>
               <%= link_to "Get PDF", perro_path(format: :pdf) %>
             <p>
 
