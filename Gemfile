@@ -44,9 +44,9 @@ gem 'cancan'
 
 gem 'wicked_pdf'
 
-#gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary'
 
-gem 'wkhtmltopdf-heroku'
+#gem 'wkhtmltopdf-heroku'
 
 
 
