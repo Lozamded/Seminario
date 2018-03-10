@@ -44,7 +44,9 @@ gem 'cancan'
 
 gem 'wicked_pdf'
 
-gem 'wkhtmltopdf-binary'
+#gem 'wkhtmltopdf-binary'
+
+gem 'wkhtmltopdf-heroku'
 
 
 
@@ -61,12 +63,13 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'pg', '~> 0.18'
+
+gem 'rails_12factor'
 
 group :production do
 
-  gem 'pg', '~> 0.18'
 
-  gem 'rails_12factor'
 
 end
 
