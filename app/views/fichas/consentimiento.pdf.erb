@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <title>Ficha clinica</title>
-  <h3><%= wicked_pdf_image_tag('LOGOS STUKA PEQUEÑO') %>  <strong>Consentimiento de propietario<strong></h3>
   <%= wicked_pdf_stylesheet_link_tag "application" -%>
+  <h3><%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %>  <strong>Consentimiento<strong></h3>
+
 </head>
 <br>
 <body>

@@ -26,7 +26,6 @@ class FichasController < ApplicationController
   def consentimiento
     @ficha = Ficha.find(params[:ficha_id])
     respond_to do |f|
-      #f.pdf{ render template: 'fichas/ficha_propietario', pdf:"Propietario"}
       f.pdf{ render template: 'fichas/consentimiento.pdf', pdf:"Consentimiento" }
     end
   end
