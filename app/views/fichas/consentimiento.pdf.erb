@@ -5,13 +5,43 @@
   <title>Ficha clinica</title>
   <%= wicked_pdf_stylesheet_link_tag "application" -%>
   <h3><%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %>  <strong>Consentimiento<strong></h3>
-
 </head>
 <br>
 <body>
 
-Yo <%= @ficha.nombre %>, <%= @ficha.rut %> Autorizo a que los animales que represento:
+Yo <%= @ficha.nombre %>, rut: <%= @ficha.rut %> Autorizo a que los animales que represento:
+<% if @ficha.perros.count > 0 %>
+  <%if  @ficha.perros.count == 1%>
+    El perro
+  <%else%>
+    Los perros
+  <%end%>
+
+  <%@ficha.perros.each do |perro|%>
+    <%=  perro.nombre %>,<%=' '%>
+  <%end%>
+  <%if @ficha.gatos.count > 0%>
+    y<%=' '%>
+  <%end%>
+<%end%>
+
+<%if @ficha.gatos.count > 0%>
+  <%if  @ficha.gatos.count == 1%>
+    El gato
+  <%else%>
+    Los gatos
+  <%end%>
+  <%@ficha.gatos.each do |gato|%>
+    <%=  gato.nombre %>,<%=' '%>
+  <%end%>
+<%end%>
+
+a someterse a los procesos quirurgicos que involucra un proceso de esterilización.
 
 
 </body>
+
+<footer>
+  Firma................... <%="    "%>Timbre..............
+</footer>
 </html>
