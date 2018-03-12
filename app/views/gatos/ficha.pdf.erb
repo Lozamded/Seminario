@@ -116,7 +116,7 @@ Animal sano
 </p>
 
 
-<h3><strong>Datos de cirugía</strong></h3>
+<h4><strong>Datos de cirugía</strong></h4>
 <br>
 
 <p>
@@ -168,21 +168,6 @@ No ingresado
 </p>
 
 <br>
-<p>
-  <h3><strong>Receta:</strong></h3>
-  <% if @gato.medicamentos.any? %>
-      <ul>
-        <%@gato.medicamentos.each do |medicamento|%>
-            <li>
-              <%= medicamento.nombre%>,<%= medicamento.cantidad%>,<%= medicamento.unidad%>
-              <%= medicamento.frecuencia%>
-            </li>
-        <%end%>
-      </ul>
-  <%else%>
-  No se añadieron insumos a la reseta
-  <% end %>
-</p>
 
 </body>
 </html>

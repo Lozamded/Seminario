@@ -88,6 +88,13 @@
   </table>
 </div>
 
+<h4><strong>Totales</strong></h4>
+<strong>Propietarios:</strong><%= Ficha.count%><br>
+<strong>Perros:</strong><%= Perro.count%><br>
+<strong>Gatos:</strong><%= Gato.count%><br>
+<strong>Veterinarios:</strong><%= Veterinario.count%><br>
+<br>
+
 
 <br>
 <%= link_to 'Ver perros ', perros_path %>(<%=Perro.count%>)|
