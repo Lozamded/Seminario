@@ -183,7 +183,10 @@
               <strong>Ficha PDF:</strong>
               <%= link_to "Get PDF", gato_path(format: :pdf) %><br>
               <strong>Receta PDF:</strong>
-              <%= link_to "Get PDF", gato_receta_path(@gato,format: :pdf) %>
+              <%= link_to "Get PDF", gato_receta_path(@gato,format: :pdf) %><br>
+              <strong>Certificicado esterilización</strong>
+              <%= link_to "Get PDF", gato_certificado_path(@gato,format: :pdf) %>
+            
             </p>
 
             <%= link_to edit_gato_path(@gato) do %>

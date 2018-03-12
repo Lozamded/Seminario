@@ -33,7 +33,7 @@
     <tbody>
       <% @veterinarios.each do |veterinario| %>
         <tr>
-          <td><%= veterinario.nombre %></td>
+          <td><%= link_to veterinario.nombre, veterinario, :remote=>true %></td>
           <td><%= veterinario.sexo %></td>
           <td><%= veterinario.fecha_nacimiento %></td>
           <td><%= veterinario.rut %></td>

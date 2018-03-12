@@ -30,6 +30,13 @@ class GatosController < ApplicationController
     end
   end
 
+  def certificado
+    @gato = Gato.find(params[:gato_id])
+    respond_to do |f|
+      f.pdf{ render template: 'gatos/certificado.pdf', pdf:"Certificado Gato" }
+    end
+  end
+
   # GET /gatos/new
   def new
     #1.times{@gato.vacunas.build}

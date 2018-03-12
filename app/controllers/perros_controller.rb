@@ -29,6 +29,13 @@ class PerrosController < ApplicationController
       f.pdf{ render template: 'perros/receta.pdf', pdf:"Receta Perro" }
     end
   end
+
+  def certificado
+    @perro = Perro.find(params[:perro_id])
+    respond_to do |f|
+      f.pdf{ render template: 'perros/certificado.pdf', pdf:"Certificado Perro" }
+    end
+  end
   # GET /perros/new
   def new
     #1.times{@perro.vacunas.build}

@@ -37,7 +37,7 @@
     <tbody>
       <% @fichas.each do |ficha| %>
         <tr>
-          <td><%= ficha.nombre %></td>
+          <td><%= link_to ficha.nombre, ficha, :remote=>true %></td>
           <td><%= ficha.tipo %></td>
           <td><%= ficha.edad %></td>
           <td><%= ficha.sexo %></td>
