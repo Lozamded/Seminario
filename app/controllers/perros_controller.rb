@@ -8,7 +8,7 @@ class PerrosController < ApplicationController
     @perros = Perro.all
     respond_to do |f|
       f.html
-      f.pdf{ render template: 'perros/ficha', pdf:'Ficha' }
+      f.pdf{ render template: 'perros/ficha', pdf:'Ficha Perro' }
       f.csv{ send_data @perros.to_csv}
       f.xls 
     end
@@ -19,10 +19,16 @@ class PerrosController < ApplicationController
   def show
     respond_to do |f|
       f.js
-      f.pdf{ render template: 'perros/ficha', pdf:'Ficha' }
+      f.pdf{ render template: 'perros/ficha', pdf:'Ficha Perro' }
     end
   end
 
+  def receta
+    @perro = Perro.find(params[:perro_id])
+    respond_to do |f|
+      f.pdf{ render template: 'perros/receta.pdf', pdf:"Receta Perro" }
+    end
+  end
   # GET /perros/new
   def new
     #1.times{@perro.vacunas.build}

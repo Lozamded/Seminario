@@ -10,8 +10,9 @@
 <body>
   <br>
   <p>
-      <strong>Numero de ficha:</strong>
-      <%= @ficha.id %>
+      <strong>Número de folio:</strong>
+      11<%= @ficha.id %><br>
+        <strong>ID Propietario:</strong><%= @ficha.id%>
   </p>
 
   <p>
@@ -74,7 +75,7 @@
         <ul>
           <%@ficha.perros.each do |perro|%>
               <li>
-                <%= link_to perro.nombre, edit_perro_path(perro)%> <%= perro.sexo%>,  <%= perro.tipo%>
+                <strong><%=perro.nombre %></strong> <%= perro.sexo%>,  <%= perro.tipo%>
               </li>
           <%end%>
         </ul>
@@ -89,7 +90,7 @@
         <ul>
           <%@ficha.gatos.each do |gato|%>
               <li>
-              <%= link_to edit_gato_path(gato), data:{ dimiss:"modal" } do%> <%=gato.nombre%> <%end%>, <%= gato.sexo%>, <%= gato.tipo%>
+                <strong><%=gato.nombre%></strong>, <%= gato.sexo%>, <%= gato.tipo%>
               </li>
           <%end%>
         </ul>

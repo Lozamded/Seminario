@@ -8,7 +8,7 @@ class GatosController < ApplicationController
     @gatos = Gato.all
     respond_to do |f|
       f.html
-      f.pdf{ render template: 'gatos/ficha', pdf:'Ficha' }
+      f.pdf{ render template: 'gatos/ficha', pdf:'Ficha Gato' }
       f.csv{ send_data @gatos.to_csv}
       f.xls # { send_data @gatos.to_csv(col_sep: "\t") }
     end
@@ -19,7 +19,14 @@ class GatosController < ApplicationController
   def show
     respond_to do |f|
       f.js
-      f.pdf{ render template: 'gatos/ficha', pdf:'Ficha' }
+      f.pdf{ render template: 'gatos/ficha', pdf:'Ficha Gato' }
+    end
+  end
+
+  def receta
+    @gato = Gato.find(params[:gato_id])
+    respond_to do |f|
+      f.pdf{ render template: 'gatos/receta.pdf', pdf:"Receta Gato" }
     end
   end
 

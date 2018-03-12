@@ -88,6 +88,13 @@
               </button>
             <%end%>
           </td>
+          <td>
+            <%= link_to  perro_receta_path(perro,format: :pdf) do%>
+              <button type="button" class="btn btn-default btn-sm">
+                  <span class="glyphicon glyphicon-print"></span> Print
+              </button>
+            <%end%>
+          </td>
         </tr>
       <% end %>
     </tbody>

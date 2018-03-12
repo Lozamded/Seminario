@@ -31,6 +31,16 @@
             </p>
 
             <p>
+              <strong>Email:</strong>
+              <%= @veterinario.email %>
+            </p>
+
+            <p>
+              <strong>Telefono:</strong>
+              <%= @veterinario.telefono %>
+            </p>
+
+            <p>
               <strong>Tipo:</strong>
               <%= @veterinario.tipo %>
             </p>
@@ -76,6 +86,15 @@
                 <%end%>
               </ul>
             </p>
+
+            <p>
+              <strong>Ficha PDF:</strong>
+              <%= link_to "Get PDF", veterinario_path(format: :pdf) %>
+            </p>
+
+            <%= link_to edit_veterinario_path(@veterinario) do %>
+              <button type="button" class="btn btn-default">Editar</button>
+            <%end%>
 
           </div>
         <div class="modal-footer">

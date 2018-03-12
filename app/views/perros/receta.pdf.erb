@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Receta </title>
+  <%= wicked_pdf_stylesheet_link_tag "application" -%>
+  <h3><%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %> <strong>Receta de perro<strong></h3>
+</head>
+
+<body>
+<br>
+
+<p>
+    <strong>Número de folio:</strong>
+    22<%= @perro.id %>
+</p>
+
+
+<p>
+    <strong>Paciente:</strong>
+    <%= @perro.nombre %>
+</p>
+
+<p>
+    <strong>Sexo:</strong>
+    <%= @perro.sexo %>
+</p>
+
+<p>
+    <strong>Raza:</strong>
+    <%= @perro.raza %>
+</p>
+
+
+<p>
+    <strong>Propietario:</strong>
+    <%= @perro.ficha.nombre %>,<%= @perro.propietario_es %><br>
+    <strong>Propietario rut:</strong>
+    <%= @perro.ficha.rut %><br>
+</p>
+
+</p>
+    <strong>Hora ingreso:</strong>
+    <%if @perro.hora_ingreso != nil %>
+        <%= @perro.hora_ingreso.strftime("%H:%M") %>
+    <%else%>
+        No ingresado
+    <%end%>
+</p>
+
+<p>
+    <strong>Hora alta medica:</strong>
+    <%if @perro.hora_alta != nil %>
+        <%= @perro.hora_alta.strftime("%H:%M") %>
+    <%else%>
+        No ingresado
+    <%end%>
+</p>
+
+<br>
+<h3><strong>Receta:</strong></h3>
+
+<p>
+  <% if @perro.medicamentos.any? %>
+      <ul>
+        <%@perro.medicamentos.each do |medicamento|%>
+            <li>
+              <%= medicamento.nombre%>,<%= medicamento.cantidad%>,<%= medicamento.unidad%>
+              <%= medicamento.frecuencia%>
+            </li>
+        <%end%>
+      </ul>
+  <%else%>
+  No se añadieron insumos a la reseta
+  <% end %>
+</p>
+
+<p>
+    <strong>Veterinario:</strong>
+    <% vet = Veterinario.where(id: @perro.veterinario_id).first %>
+    <% if vet != nil %>
+        <%=  vet.nombre %>,
+        <strong>contacto: </strong><%= vet.telefono%>, <%= vet.email%>
+    <%else%>
+        No asignado
+    <%end%>
+</p>
+
+</body>
+
+<footer class="center">
+  Firma................... <%="         "%>Timbre..................
+</footer>
+
+</html>

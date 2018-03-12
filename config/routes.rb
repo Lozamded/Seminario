@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   devise_for :users
   root 'fichas#index'
 
-  resources :gatos
-  resources :perros
+  resources :gatos do
+    get 'receta', to: 'gatos#receta'
+  end
+  resources :perros do
+    get 'receta', to: 'perros#receta'
+  end
   resources :fichas do
     get 'consentimiento', to: 'fichas#consentimiento'
   end

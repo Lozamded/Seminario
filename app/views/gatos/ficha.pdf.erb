@@ -10,8 +10,9 @@
 <br>
 
 <p>
-    <strong>Numero de ficha:</strong>
-    <%= @gato.id %>
+    <strong>Número de folio:</strong>
+    31<%= @gato.id %><br>
+    <strong>ID Gato:</strong><%= @gato.id%>
 </p>
 
 
@@ -166,7 +167,7 @@ No ingresado
 <%= @gato.complicaciones %>
 </p>
 
-
+<br>
 <p>
   <h3><strong>Receta:</strong></h3>
   <% if @gato.medicamentos.any? %>

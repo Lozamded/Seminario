@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Receta </title>
+  <%= wicked_pdf_stylesheet_link_tag "application" -%>
+  <h3><%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %> <strong>Receta de gato<strong></h3>
+</head>
+
+<body>
+<br>
+
+<p>
+    <strong>Número de folio:</strong>
+    32<%= @gato.id %>
+</p>
+
+
+<p>
+    <strong>Paciente:</strong>
+    <%= @gato.nombre %>
+</p>
+
+<p>
+    <strong>Sexo:</strong>
+    <%= @gato.sexo %>
+</p>
+
+<p>
+    <strong>Raza:</strong>
+    <%= @gato.raza %>
+</p>
+
+
+<p>
+    <strong>Propietario:</strong>
+    <%= @gato.ficha.nombre %>,<%= @gato.propietario_es %><br>
+    <strong>Propietario rut:</strong>
+    <%= @gato.ficha.rut %><br>
+</p>
+
+</p>
+    <strong>Hora ingreso:</strong>
+    <%if @gato.hora_ingreso != nil %>
+        <%= @gato.hora_ingreso.strftime("%H:%M") %>
+    <%else%>
+        No ingresado
+    <%end%>
+</p>
+
+<p>
+    <strong>Hora alta medica:</strong>
+    <%if @gato.hora_alta != nil %>
+        <%= @gato.hora_alta.strftime("%H:%M") %>
+    <%else%>
+        No ingresado
+    <%end%>
+</p>
+
+<h3><strong>Receta:</strong></h3>
+
+<p>
+  <% if @gato.medicamentos.any? %>
+      <ul>
+        <%@gato.medicamentos.each do |medicamento|%>
+            <li>
+              <%= medicamento.nombre%>,<%= medicamento.cantidad%>,<%= medicamento.unidad%>
+              <%= medicamento.frecuencia%>
+            </li>
+        <%end%>
+      </ul>
+  <%else%>
+  No se añadieron insumos a la reseta
+  <% end %>
+</p>
+
+<p>
+    <strong>Veterinario:</strong>
+    <% vet = Veterinario.where(id: @gato.veterinario_id).first %>
+    <% if vet != nil %>
+        <%=  vet.nombre %>,
+        <strong>contacto: </strong><%= vet.telefono%>, <%= vet.email%>
+    <%else%>
+        No asignado
+    <%end%>
+</p>
+
+</body>
+
+<footer class="center">
+  Firma................... <%="         "%>Timbre..................
+</footer>
+
+</html>

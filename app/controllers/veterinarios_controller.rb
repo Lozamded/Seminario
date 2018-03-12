@@ -8,7 +8,7 @@ class VeterinariosController < ApplicationController
     @veterinarios = Veterinario.all
     respond_to do |f|
       f.html
-      f.pdf{ render template: 'gatos/ficha', pdf:'Ficha' }
+      f.pdf{ render template: 'veterinarios/ficha', pdf:'Ficha Veterinario' }
       f.csv{ send_data @veterinarios.to_csv}
       f.xls
     end
@@ -19,6 +19,7 @@ class VeterinariosController < ApplicationController
   def show
     respond_to do |f|
       f.js
+      f.pdf{ render template: 'veterinarios/ficha', pdf:'Ficha Veterinario' }
     end
   end
 
@@ -79,6 +80,6 @@ class VeterinariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def veterinario_params
-      params.require(:veterinario).permit(:nombre, :sexo, :fecha_nacimiento,:casa_estudios, :tipo_estudios, :rut, :tipo, :especialidad)
+      params.require(:veterinario).permit(:nombre, :sexo, :fecha_nacimiento, :email , :telefono, :casa_estudios, :tipo_estudios, :rut, :tipo, :especialidad)
     end
 end

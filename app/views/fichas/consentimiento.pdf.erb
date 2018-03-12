@@ -8,40 +8,45 @@
 </head>
 <br>
 <body>
+  <p>
+      <strong>Número de folio:</strong>
+      12<%= @ficha.id %>
+  </p>
+  <p align="justify">
 
-Yo <%= @ficha.nombre %>, rut: <%= @ficha.rut %> Autorizo a que los animales que represento:
-<% if @ficha.perros.count > 0 %>
-  <%if  @ficha.perros.count == 1%>
-    El perro
-  <%else%>
-    Los perros
+  Yo <%= @ficha.nombre %>, rut: <%= @ficha.rut %> Autorizo a que los animales que represento:
+  <% if @ficha.perros.count > 0 %>
+    <%if  @ficha.perros.count == 1%>
+      El perro
+    <%else%>
+      Los perros
+    <%end%>
+
+    <%@ficha.perros.each do |perro|%>
+      <%=  perro.nombre %>,<%=' '%>
+    <%end%>
+    <%if @ficha.gatos.count > 0%>
+      y<%=' '%>
+    <%end%>
   <%end%>
 
-  <%@ficha.perros.each do |perro|%>
-    <%=  perro.nombre %>,<%=' '%>
-  <%end%>
   <%if @ficha.gatos.count > 0%>
-    y<%=' '%>
+    <%if  @ficha.gatos.count == 1%>
+      El gato
+    <%else%>
+      Los gatos
+    <%end%>
+    <%@ficha.gatos.each do |gato|%>
+      <%=  gato.nombre %>,<%=' '%>
+    <%end%>
   <%end%>
-<%end%>
 
-<%if @ficha.gatos.count > 0%>
-  <%if  @ficha.gatos.count == 1%>
-    El gato
-  <%else%>
-    Los gatos
-  <%end%>
-  <%@ficha.gatos.each do |gato|%>
-    <%=  gato.nombre %>,<%=' '%>
-  <%end%>
-<%end%>
+  a someterse a los procesos quirurgicos que involucra un proceso de esterilización.
 
-a someterse a los procesos quirurgicos que involucra un proceso de esterilización.
-
-
+  </p>
 </body>
 
-<footer>
-  Firma................... <%="    "%>Timbre..............
+<footer class="center">
+  Firma................... <%="     "%>Timbre..................
 </footer>
 </html>
