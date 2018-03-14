@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <title>Receta </title>
   <%= wicked_pdf_stylesheet_link_tag "application" -%>
-  <h3><%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %> <strong>Receta de perro<strong></h3>
+  <%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %><%= image_tag wicked_pdf_asset_base64('logo compassion') %><%= image_tag wicked_pdf_asset_base64('Logo Seminario') %>
+  <h3> <strong>Receta de perro<strong></h3>
 </head>
 
 <body>
@@ -34,9 +35,7 @@
 
 <p>
     <strong>Propietario:</strong>
-    <%= @perro.ficha.nombre %>,<%= @perro.propietario_es %><br>
-    <strong>Propietario rut:</strong>
-    <%= @perro.ficha.rut %><br>
+    <%= @perro.ficha.nombre %>
 </p>
 
 </p>
@@ -65,8 +64,8 @@
       <ul>
         <%@perro.medicamentos.each do |medicamento|%>
             <li>
-              <%= medicamento.nombre%>,<%= medicamento.cantidad%>,<%= medicamento.unidad%>
-              <%= medicamento.frecuencia%>
+              <strong><%= medicamento.nombre%></strong><br>
+              Dar <%= medicamento.cantidad %>[<%= medicamento.unidad%>], cada <%= medicamento.cada%>[Hrs], durante <%= medicamento.durante %> <%= medicamento.durante_unidad%><br><br>
             </li>
         <%end%>
       </ul>

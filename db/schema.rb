@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312001230) do
+ActiveRecord::Schema.define(version: 20180314031515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(version: 20180312001230) do
     t.text "complicaciones"
     t.bigint "veterinario_id"
     t.string "propietario_es"
+    t.string "formato_edad"
+    t.date "fecha_operacion"
     t.index ["ficha_id"], name: "index_gatos_on_ficha_id"
     t.index ["veterinario_id"], name: "index_gatos_on_veterinario_id"
   end
@@ -84,12 +86,14 @@ ActiveRecord::Schema.define(version: 20180312001230) do
   create_table "medicamentos", force: :cascade do |t|
     t.string "nombre"
     t.decimal "cantidad"
-    t.text "frecuencia"
+    t.text "cada"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "gato_id"
     t.bigint "perro_id"
     t.string "unidad"
+    t.bigint "durante"
+    t.string "durante_unidad"
     t.index ["gato_id"], name: "index_medicamentos_on_gato_id"
     t.index ["perro_id"], name: "index_medicamentos_on_perro_id"
   end
@@ -121,6 +125,8 @@ ActiveRecord::Schema.define(version: 20180312001230) do
     t.text "complicaciones"
     t.bigint "veterinario_id"
     t.string "propietario_es"
+    t.string "formato_edad"
+    t.date "fecha_operacion"
     t.index ["ficha_id"], name: "index_perros_on_ficha_id"
     t.index ["veterinario_id"], name: "index_perros_on_veterinario_id"
   end

@@ -13,8 +13,32 @@
       12<%= @ficha.id %>
   </p>
   <p align="justify">
+Este documento está destinado a informarles de la anestesia, de sus ventajas y de sus riesgos. Rogamos que lo lean atentamente, para dar su consentimiento firmado y proceder a la anestesia que les será propuesta.  Podrán a su vez exponer cualquier duda sobre este procedimiento al clínico que les atienda.
+<br><br>  
+<strong>¿Porque debe ser anestesiado su animal?</strong><br>
+Además de las intervenciones quirúrgicas, hay una serie de procedimientos en medicina veterinaria que necesitan una tranquilización o una anestesia general: es necesario en procedimientos en los que se necesita una inmovilidad del mismo durante un tiempo determinado, también en procedimientos que no serían tolerados por el animal si estuviese despierto o intranquilo.
+<br><br>
+<strong>¿Cómo nos encargaremos de que no sufra dolor?</strong><br>
+Se emplean diversos medios para evitar cualquier sufrimiento de su animal: La administración de medicamentos analgésicos es en la mayoría de los casos suficiente, pero en ciertos procedimientos indicados por su veterinario, se combina con anestesia local-regional realizada antes de la intervención quirúrgica para asegurar un confort óptimo. Antes de la anestesia es importante que su perro esté en ayunas.  En caso de vómitos durante la anestesia corre el riesgo de neumonía grave que puede llegar a ser mortal.  En la práctica, el acceso a la comida debe impedirse al menos 8 horas antes de la anestesia salvo en casos particulares que deben precisarse.  Generalmente no es necesario restringir el acceso al agua (aunque otras bebidas como la leche están prohibidas).
+<br><br>
+<strong>Consulta Preanestésica</strong><br>
+Toda anestesia o tranquilización que no sea de urgencia necesita una exploración previa durante la cual ustedes pueden realizar todo tipo de preguntas que les puedan surgir.  La elección del tipo de anestesia se determinará en función del tipo de cirugía y el estado de salud. La elección final del protocolo anestésico es responsabilidad del Veterinario que practicará la anestesia.  Esta consulta previa podrá realizarse en el momento del ingreso del paciente o antes del procedimiento.
+<br><br>
+<strong>Posibles riesgos de la anestesia</strong><br>
+Todo acto médico, incluso conducido con competencia y respetando los conocimientos científicos actuales conlleva un riesgo.  Este riesgo depende de multiples factores que contemplan desde la edad al estado de salud del animal como del proceso médico y/o quirúrgico por el que se produce el acto anestésico.  Este riesgo se clasifica en una escala del 1 (leve) al 5 (riego muy elevado). Algunos animales especialmente nerviosos o agresivos presentan un riesgo mayor ante la anestesia así como tambien, los animales geriatricos (edad avanzada). La conformación de ciertas razas puede aumentar el riesgo anestésico. Durante la anestesia general y/o tranquilización así como durante una anestesia local-regional, las complicaciones imprevisibles pueden poner en riesgo la vida del animal, por ejemplo: una parada cardiaca o una alergia grave a cualquier fármaco o excipiente pueden surgir excepcionalmente sin que exista negligencia por parte de los clínicos. La existencia de estos riesgos debe ser entendida y aceptada por ustedes.
+<br><br>
+<strong>Posquirúrgico</strong><br>
+Después de la cirugía su animal puede presentar zonas rasuradas, generalmente en las extremidades. Esto lo realizamos para permitir la visualización y el acceso limpio a las venas por las cuales se inyectara el fármaco anestésico o una región más amplia en otras zonas en las cuales se inyectan anestésicos locales.  Un tubo se introduce generalmente en la tráquea para facilitar la respiración y administración de los vapores anestésicos.  Esto puede dar lugar a una tos temporal algunos días después de la anestesia.
+Si su animal vuelve a casa el mismo día de la intervención es recomendable mantenerle en un sitio en reposo, en silencio y en una zona templada.  Por regla general el paciente puede comenzar a ingerir líquidos (agua) y comida en pequeñas cantidades, que se suspenderán en caso de cualquier anomalía  
+<br>  
+<br>
+<br>
+</p>
 
-  Yo <%= @ficha.nombre %>, rut: <%= @ficha.rut %> Autorizo a que los animales que represento:
+<p align="justify">
+<h4>DECLARACIÓN DE CONSENTIMIENTO INFORMADO</h4>
+A través del siguiente documento, yo <strong><%= @ficha.nombre %></strong>, Cedula de indentidad: <strong><%= @ficha.rut %></strong>,con domicilio en <strong><%= @ficha.direccion %>,<%= @ficha.comuna%> </strong>. 
+<br>Autorizo a que los animales que represento:
   <% if @ficha.perros.count > 0 %>
     <%if  @ficha.perros.count == 1%>
       El perro
@@ -23,7 +47,7 @@
     <%end%>
 
     <%@ficha.perros.each do |perro|%>
-      <%=  perro.nombre %>,<%=' '%>
+      <strong><%=  perro.nombre %></strong>,<%=' '%>
     <%end%>
     <%if @ficha.gatos.count > 0%>
       y<%=' '%>
@@ -37,16 +61,30 @@
       Los gatos
     <%end%>
     <%@ficha.gatos.each do |gato|%>
-      <%=  gato.nombre %>,<%=' '%>
+      <strong><%=  gato.nombre %></strong>,<%=' '%>
     <%end%>
   <%end%>
 
-  a someterse a los procesos quirurgicos que involucra un proceso de esterilización.
-
+  Declaro haber sido debidamente informado por el Médico Veterinario a cargo, respecto de los riesgos que involucra cualquier procedimiento quirúrgico bajo anestesia, haber expresado y aclarado oportunamente toda duda que haya podido surgir y, entendiendo esos riesgos.
+Con fecha de <%= Time.now.strftime("%d-%m-%Y") %>, autorizo voluntariamente al Médico Veterinario a llevar a cabo el procedimiento quirúrgico por el cual he traído a mi animal o animales de compañía.
+  <br>
+  <br>
+  <h4>Declaración de información del paciente</h4>
+<li>Declaro que la información entragada sobre la salud de mi mascota es veraz y esta en los últimos 10 días no ha presentado los siguientes signos: vómitos, diarrea,convulsiones, traumas, anorexia, decaimiento, secreciones nasales o conjuntivales.</li>
+<li>Declaro cumplir con las indicaciones de ayuno y cuidados contenidos en las indicaciones pre quirúrgicas </li>
+<li>Acepto el tatuaje realizado en mi mascota que la identifica como un animal esterilizado.</li>
+<br>
+<h4>DECLARACIÓN DE CUIDADOS POST OPERATORIOS</h4>
+<li>Declaro entender las indicaciones de cuidados entregados en la pauta de manejo post quirúrgico.</li>
+<li>Me comprometo a seguir las indicaciones y asumir bajo mi responsabilidad el adecuado cuidado de mi mascota.</li>
+<li>Entiendo las posibles complicaciones post quirúrgicas informadas por el médico veterinario. Comprometiendome en dar aviso al médico veterinario con la finalidad de cumplir con los tratamientos y controles por este indicados</li> 
+  <br>
   </p>
 </body>
-
+<br>
+<br>
+<br>
 <footer class="center">
-  Firma................... <%="     "%>Timbre..................
+  Firma del responable........................... <%="   "%>Firma y timbre de medico veterinario................................
 </footer>
 </html>

@@ -1,13 +1,19 @@
 <div class="nested-fields">
-    
+
+  <h4><strong>Perro:</strong></h4><br>
+
+    <strong><%= link_to_remove_association "Eliminar Perro", f %></strong><br><br>
+
     <div class="field">
         <%= f.label :nombre %>
         <%= f.text_field :nombre%>
     </div>
-    
+
     <div class="field">
         <%= f.label :edad %>
-        <%= f.number_field :edad%>[Años]   
+        <%= f.number_field :edad%>
+        <% f.label :formato_edad %>
+        <%= f.select :formato_edad, ['Años','Meses']%>
     </div>
 
     <div class="field">
@@ -57,6 +63,11 @@
     </div>
 
     <div class="field">
+        <%= f.label :color %>
+        <%= f.text_field :color %>
+    </div>
+
+    <div class="field">
         <% f.label :senas %><Strong>Señas<br></strong>
         <%= f.text_area :senas %>
     </div>
@@ -103,8 +114,5 @@
         partial: 'enfermedades_fields' %>
         </div>
     </strong><br>
-
-    <br>
-    <strong><%= link_to_remove_association "Eliminar Perro", f %></strong><br><br>
 
 </div>

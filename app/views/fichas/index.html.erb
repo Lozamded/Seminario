@@ -37,7 +37,7 @@
     <tbody>
       <% @fichas.each do |ficha| %>
         <tr>
-          <td><%= ficha.nombre %></td>
+          <td><%= link_to ficha.nombre, ficha, :remote=>true %></td>
           <td><%= ficha.tipo %></td>
           <td><%= ficha.edad %></td>
           <td><%= ficha.sexo %></td>
@@ -87,6 +87,13 @@
     </tbody>
   </table>
 </div>
+
+<h4><strong>Totales</strong></h4>
+<strong>Propietarios:</strong><%= Ficha.count%><br>
+<strong>Perros:</strong><%= Perro.count%><br>
+<strong>Gatos:</strong><%= Gato.count%><br>
+<strong>Veterinarios:</strong><%= Veterinario.count%><br>
+<br>
 
 
 <br>

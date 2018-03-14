@@ -1,13 +1,19 @@
 <div class="nested-fields">
-    
+
+    <h4><strong>Gato:</strong></h4><br>
+  
+    <strong><%= link_to_remove_association 'Eliminar Gato', f %></strong><br><br>
+
     <div class="field">
         <%= f.label :nombre %>
         <%= f.text_field :nombre%>
     </div>
-    
+
     <div class="field">
         <%= f.label :edad %>
-        <%= f.number_field :edad%>[Años]   
+        <%= f.number_field :edad%>
+        <% f.label :formato_edad %>
+        <%= f.select :formato_edad, ['Años','Meses']%>
     </div>
 
     <div class="field">
@@ -57,6 +63,11 @@
     </div>
 
     <div class="field">
+        <%= f.label :color %>
+        <%= f.text_field :color %>
+    </div>
+
+    <div class="field">
         <% f.label :senas %><strong>Señas<strong><br>
         <%= f.text_area :senas %>
     </div>
@@ -69,9 +80,9 @@
     <h4><strong>Vacunas</strong></h4><br>
 
     <div id="vacunas" >
-        <div class="vacunas-fields">
+        <div class="vacunas_gatos-fields">
         <%= f.fields_for :vacunas do |vacuna| %>
-            <%= render "vacunas_fields", f: vacuna %>
+            <%= render "vacunas_gatos_fields", f: vacuna %>
         <% end %>
         </div>
     </div>
@@ -79,9 +90,9 @@
     <strong>
         <div class="links">
         <%= link_to_add_association 'Añadir Vacuna', f, :vacunas,
-        'data-association-insertion-node' =>  '.vacunas-fields',
+        'data-association-insertion-node' =>  '.vacunas_gatos-fields',
         'data-association-insertion-method' => 'append', :class => 'btn_regular',
-        partial: 'vacunas_fields' %>
+        partial: 'vacunas_gatos_fields' %>
         </div>
     </strong><br>
 
@@ -103,8 +114,6 @@
         partial: 'enfermedades_fields' %>
         </div>
     </strong><br>
-        
-    <br>
-    <strong><%= link_to_remove_association 'Eliminar Gato', f %></strong><br><br>
+
 
 </div>

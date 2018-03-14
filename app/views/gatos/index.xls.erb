@@ -25,6 +25,7 @@
         <Cell><Data ss:Type="String">Apto operación</Data></Cell>
         <Cell><Data ss:Type="String">Veterinario</Data></Cell>
         <Cell><Data ss:Type="String">Tipo cirugía</Data></Cell>
+        <Cell><Data ss:Type="String">Fecha cirugía</Data></Cell>
         <Cell><Data ss:Type="String">Hora ingreso</Data></Cell>
         <Cell><Data ss:Type="String">Hora alta</Data></Cell>
         <Cell><Data ss:Type="String">Medicamentos</Data></Cell>
@@ -35,7 +36,7 @@
       <Row>
         <Cell><Data ss:Type="Number"><%= gato.id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= gato.nombre %></Data></Cell>
-        <Cell><Data ss:Type="Number"><%= gato.edad %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= gato.edad %>[<%=gato.formato_edad%>]</Data></Cell>
         <Cell><Data ss:Type="String"><%= gato.sexo %></Data></Cell>
         <Cell><Data ss:Type="String"><%= gato.raza %></Data></Cell>
         <Cell><Data ss:Type="String"><%= gato.tipo %></Data></Cell>
@@ -51,6 +52,7 @@
         <Cell><Data ss:Type="String"><%= gato.apto_cirujia%></Data></Cell>
         <Cell><Data ss:Type="String"><% if vet != nil %><%= vet.nombre %><%end%></Data></Cell>
         <Cell><Data ss:Type="String"><%= gato.tipo_cirujia%></Data></Cell>
+        <Cell><Data ss:Type="String"><%= gato.fecha_operacion %></Data></Cell>
         <Cell><Data ss:Type="String"><%if gato.hora_ingreso != nil %><%= gato.hora_ingreso.strftime("%H:%M") %><%end%></Data></Cell>
         <Cell><Data ss:Type="String"><%if gato.hora_alta != nil %><%= gato.hora_alta.strftime("%H:%M") %><%end%></Data></Cell>
         <Cell><Data ss:Type="Number"><%= gato.medicamentos.count %></Data></Cell>
@@ -59,8 +61,3 @@
     </Table>
   </Worksheet>
 </Workbook>
-
- 
-  
-  
-

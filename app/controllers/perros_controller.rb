@@ -10,7 +10,7 @@ class PerrosController < ApplicationController
       f.html
       f.pdf{ render template: 'perros/ficha', pdf:'Ficha Perro' }
       f.csv{ send_data @perros.to_csv}
-      f.xls 
+      f.xls
     end
   end
 
@@ -27,6 +27,13 @@ class PerrosController < ApplicationController
     @perro = Perro.find(params[:perro_id])
     respond_to do |f|
       f.pdf{ render template: 'perros/receta.pdf', pdf:"Receta Perro" }
+    end
+  end
+
+  def certificado
+    @perro = Perro.find(params[:perro_id])
+    respond_to do |f|
+      f.pdf{ render template: 'perros/certificado.pdf', pdf:"Certificado Perro" }
     end
   end
   # GET /perros/new
@@ -88,6 +95,6 @@ class PerrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def perro_params
-      params.require(:perro).permit(:nombre, :edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :comentario, :ficha_id, :propietario_es, :veterinario_id, :apto_cirujia, :apto_cirujia_text, :medico_tratante, :hora_ingreso, :tipo_cirujia, :hallazgos, :hora_alta, :complicaciones, vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy], veterinarios_attributes:[:id,:nombre,:_destroy],medicamentos_attributes:[:id,:nombre,:cantidad,:unidad,:frecuencia,:_destroy])
+      params.require(:perro).permit(:nombre, :edad, :formato_edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :fecha_operacion, :comentario, :ficha_id, :propietario_es, :veterinario_id, :apto_cirujia, :apto_cirujia_text, :medico_tratante, :hora_ingreso, :tipo_cirujia, :hallazgos, :hora_alta, :complicaciones, vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy], veterinarios_attributes:[:id,:nombre,:_destroy],medicamentos_attributes:[:id,:nombre,:cantidad,:unidad,:cada,:durante,:durante_unidad,:_destroy])
     end
 end

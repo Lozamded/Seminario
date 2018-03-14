@@ -19,7 +19,7 @@
 
             <p>
             <strong>Edad:</strong>
-            <%= @perro.edad %>
+            <%= @perro.edad %><%= @perro.formato_edad %>
             </p>
 
             <p>
@@ -132,6 +132,11 @@
             <p>
 
             <p>
+                <strong>Fecha cirugía:</strong>
+                <%= @perro.fecha_operacion %>
+            </p>
+
+            <p>
               <strong>Hora ingreso:</strong>
               <%if @perro.hora_ingreso != nil %>
                 <%= @perro.hora_ingreso.strftime("%H:%M") %>
@@ -160,8 +165,8 @@
                   <ul>
                     <%@perro.medicamentos.each do |medicamento|%>
                         <li>
-                          <%= medicamento.nombre%>,<%= medicamento.cantidad%>,<%= medicamento.unidad%>
-                          <%= medicamento.frecuencia%>
+                          <strong><%= medicamento.nombre%></strong><br>
+                          Dar <%= medicamento.cantidad %>[<%= medicamento.unidad%>], cada <%= medicamento.cada%>[Hrs], durante <%= medicamento.durante %> <%= medicamento.durante_unidad%><br>
                         </li>
                     <%end%>
                   </ul>
@@ -171,10 +176,12 @@
             </p>
 
             <p>
-              <strong>Ficha PDF:</strong>
+              <strong>Ficha clinica:</strong>
               <%= link_to "Get PDF", perro_path(format: :pdf) %><br>
-              <strong>Receta PDF:</strong>
-              <%= link_to "Get PDF", perro_path(format: :pdf) %>
+              <strong>Receta medica:</strong>
+              <%= link_to "Get PDF", perro_receta_path(@perro,format: :pdf) %><br>
+              <strong>Certificicado esterilización:</strong>
+              <%= link_to "Get PDF", perro_certificado_path(@perro,format: :pdf) %>
             </p>
 
             <%= link_to edit_perro_path(@perro) do %>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Certificado</title>
+  <%= wicked_pdf_stylesheet_link_tag "application" -%>
+  <h3><%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %>  <strong>Certificado de esterilización de gato<strong></h3>
+</head>
+<body>
+<br>
+
+<p>
+    <strong>Número de folio:</strong>
+    33<%= @gato.id %><br>
+</p>
+
+<h4>Informacion del Gato</h4>
+
+<p>
+    <strong>Nombre:</strong>
+    <%= @gato.nombre %>
+</p>
+
+<p>
+    <strong>Sexo:</strong>
+    <%= @gato.sexo %>
+</p>
+
+<p>
+    <strong>Fecha de cirugía:</strong>
+    <%= @gato.fecha_operacion %>
+</p>
+
+<p>
+    <strong>Tipo de cirugía:</strong>
+    <%= @gato.tipo_cirujia %>
+</p>
+
+<p>
+    <strong>Raza:</strong>
+    <% if @gato.raza == nil %>
+        No especificada
+    <%else%>
+        <%= @gato.raza %>
+    <%end%>
+</p>
+
+<p>
+    <strong>Numero chip:</strong>
+    <% if @gato.numero_chip == nil %>
+        No tiene chip
+    <%else%>
+        <%= @gato.numero_chip %>
+    <%end%>
+</p>
+
+
+<h4> Informacion del Propietario</h4>
+
+<p>
+    <strong>Propietario:</strong>
+    <%= @gato.ficha.nombre %><br>
+</p>
+
+<p>
+    <strong>Rut:</strong>
+    <%= @gato.ficha.rut %><br>
+</p>
+
+<p>
+    <strong>Telefono:</strong>
+    <%= @gato.ficha.telefono %><br>
+</p>
+
+<p>
+    <strong>Dirección:</strong>
+    <%= @gato.ficha.direccion %>,<%= @gato.ficha.comuna %><br>
+</p>
+
+<br>
+
+</body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer class="center">
+  Firma rsepresentante Stuka.....................................
+</footer>
+</html>

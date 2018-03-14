@@ -1,7 +1,7 @@
 class MedicamentosController < ApplicationController
   before_action :set_medicamento, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  
+
   # GET /medicamentos
   # GET /medicamentos.json
   def index
@@ -70,6 +70,6 @@ class MedicamentosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medicamento_params
-      params.require(:medicamento).permit(:nombre, :cantidad, :frecuencia)
+      params.require(:medicamento).permit(:nombre, :cantidad,:unidad, :cada,:durante_unidad,:durante_unidad)
     end
 end

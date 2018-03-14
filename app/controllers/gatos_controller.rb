@@ -30,6 +30,13 @@ class GatosController < ApplicationController
     end
   end
 
+  def certificado
+    @gato = Gato.find(params[:gato_id])
+    respond_to do |f|
+      f.pdf{ render template: 'gatos/certificado.pdf', pdf:"Certificado Gato" }
+    end
+  end
+
   # GET /gatos/new
   def new
     #1.times{@gato.vacunas.build}
@@ -89,6 +96,6 @@ class GatosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gato_params
-      params.require(:gato).permit(:nombre, :edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :comentario, :ficha_id, :propietario_es, :veterinario_id, :apto_cirujia, :apto_cirujia_text, :medico_tratante, :hora_ingreso, :tipo_cirujia, :hallazgos, :hora_alta, :complicaciones,vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy],veterinario_atributes:[:id,:nombre,:_destroy],medicamentos_attributes:[:id,:nombre,:cantidad,:unidad,:frecuencia,:_destroy])
+      params.require(:gato).permit(:nombre, :edad, :formato_edad, :sexo, :raza, :tipo, :peso, :porte, :chip, :numero_chip, :agresividad, :color, :senas, :fecha_operacion, :comentario, :ficha_id, :propietario_es, :veterinario_id, :apto_cirujia, :apto_cirujia_text, :medico_tratante, :hora_ingreso, :tipo_cirujia, :hallazgos, :hora_alta, :complicaciones,vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy],veterinario_atributes:[:id,:nombre,:_destroy],medicamentos_attributes:[:id,:nombre,:cantidad,:unidad,:cada,:durante,:durante_unidad,:_destroy])
     end
 end

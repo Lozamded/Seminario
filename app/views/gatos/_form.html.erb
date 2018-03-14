@@ -18,8 +18,11 @@
 
   <div class="field">
     <%= f.label :edad %>
-    <%= f.number_field :edad, id: :gato_edad %>[Años]
+    <%= f.number_field :edad, id: :gato_edad %>
+    <% f.label :formato_edad %>
+    <%= f.select :formato_edad, ['Años','Meses']%>
   </div>
+
 
   <div class="field">
     <%= f.label :sexo %>
@@ -129,7 +132,7 @@
    <h4><strong>Datos de operación</strong></h4><br>
 
     <div class="field"><br>
-      <% f.label :apto_cirujia %><strong>Gato apto para la cirujía</strong>
+      <% f.label :apto_cirujia %><strong>Gato apto para la cirugía</strong>
       <%= f.select :apto_cirujia   , ['Si','No'] %><br>
       <% f.label :apto_cirujia_text %><strong>Razón:</strong>(Opcional) <br>
       <%= f.text_area :apto_cirujia_text, id: :gato_cirujia_text %>
@@ -138,6 +141,11 @@
     <div class="field">
       <%= f.label :veterinario_id %>
       <%= f.collection_select :veterinario_id, Veterinario.order(:nombre), :id, :nombre  %>
+    </div>
+
+    <div class="field">
+      <% f.label :fecha_operacion %><strong>Fecha cirugía:</strong>
+      <%= f.date_field :fecha_operacion, id: :gato_fecha_operacion%>
     </div>
 
     <div class="field">

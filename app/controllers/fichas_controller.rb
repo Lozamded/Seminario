@@ -89,6 +89,6 @@ class FichasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ficha_params
-      params.require(:ficha).permit(:nombre, :rut, :edad, :sexo, :tipo, :telefono, :direccion, :comuna, :email, :medio_encuentro, :medio_encuentro_text, perros_attributes:[:id,:nombre,:edad,:sexo,:raza,:tipo,:peso,:porte,:chip,:numero_chip,:agresividad,:color,:senas,:comentario,:_destroy,vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy]],gatos_attributes:[:id,:nombre,:edad,:sexo,:raza,:tipo,:peso,:porte,:chip,:numero_chip,:agresividad,:color,:senas,:comentario,:_destroy,vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy]])
+      params.require(:ficha).permit(:nombre, :rut, :edad, :sexo, :tipo, :telefono, :direccion, :comuna, :email, :medio_encuentro, :medio_encuentro_text, perros_attributes:[:id,:nombre,:edad,:formato_edad,:sexo,:raza,:tipo,:peso,:porte,:chip,:numero_chip,:agresividad,:color,:senas,:fecha_operacion,:comentario,:_destroy,vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy]],gatos_attributes:[:id,:nombre,:edad,:formato_edad,:sexo,:raza,:tipo,:peso,:porte,:chip,:numero_chip,:agresividad,:color,:senas,:fecha_operacion,:comentario,:_destroy,vacunas_attributes:[:id,:nombre,:_destroy], enfermedades_attributes:[:id,:nombre,:_destroy]])
     end
 end

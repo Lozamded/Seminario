@@ -64,8 +64,8 @@
       <ul>
         <%@gato.medicamentos.each do |medicamento|%>
             <li>
-              <%= medicamento.nombre%>,<%= medicamento.cantidad%>,<%= medicamento.unidad%>
-              <%= medicamento.frecuencia%>
+              <strong><%= medicamento.nombre%></strong><br>
+              Dar <%= medicamento.cantidad %>[<%= medicamento.unidad%>], cada <%= medicamento.cada%>[Hrs], durante <%= medicamento.durante %> <%= medicamento.durante_unidad%><br><br>
             </li>
         <%end%>
       </ul>

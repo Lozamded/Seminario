@@ -16,8 +16,15 @@
   </div>
 
   <div class="field">
-      <%= f.label :frecuencia %><br>
-      <%= f.text_area :frecuencia%>
+      <%= f.label :cada %>
+      <%= f.number_field :cada%>[Hrs]
+  </div>
+
+  <div class="field">
+      <%= f.label :durante %>
+      <%= f.number_field :durante%>
+      <% f.label :durante_unidad%>
+      <%= f.select :durante_unidad, ['Dias','Meses','Años','Permanente']%>
   </div>
 
   <strong><%= link_to_remove_association "Borrar medicamento", f %></strong><br><br>

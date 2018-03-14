@@ -33,20 +33,22 @@
         <th>Apto operación</th>
         <th>Veterinario </th>
         <th>Tipo cirugía</th>
+        <th>Fecha cirugía</th>
         <th>Hora ingreso</th>
         <th>Hora alta</th>
         <th>Medicamentos</th>
         <th colspan="3"></th>
         <th>Ficha</th>
-        <th>Receta<th>
+        <th>Receta</th>
+        <th>Certificado</th>
       </tr>
     </thead>
 
     <tbody>
       <% @perros.each do |perro| %>
         <tr>
-          <td><%= perro.nombre %></td>
-          <td><%= perro.edad %></td>
+          <td><%= link_to perro.nombre ,perro , :remote=>true %></td>
+          <td><%= perro.edad %>[<%= perro.formato_edad %>]</td>
           <td><%= perro.sexo %></td>
           <td><%= perro.raza %></td>
           <td><%= perro.tipo%></td>
@@ -67,6 +69,7 @@
               <%end%>
           </td>
           <td><%= perro.tipo_cirujia%></td>
+          <td><%= perro.fecha_operacion%></td>
           <td>
                 <%if perro.hora_ingreso != nil %>
                   <%= perro.hora_ingreso.strftime("%H:%M") %>
@@ -95,6 +98,13 @@
               </button>
             <%end%>
           </td>
+          <td>
+            <%= link_to  perro_certificado_path(perro,format: :pdf) do%>
+              <button type="button" class="btn btn-default btn-sm">
+                  <span class="glyphicon glyphicon-print"></span> Print
+              </button>
+            <%end%>
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -103,6 +113,8 @@
 
 <br>
 
+<strong>Total perros:</strong><%= Perro.count%><br>
+<br>
 
 <p>
   Descargar:

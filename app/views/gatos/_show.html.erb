@@ -19,7 +19,7 @@
 
             <p>
             <strong>Edad:</strong>
-            <%= @gato.edad %>
+            <%= @gato.edad %><%= @gato.formato_edad%>
             </p>
 
             <p>
@@ -132,7 +132,13 @@
               <%else%>
                 No asignado
               <%end%>
+            </p>
+
             <p>
+              <strong>Fecha cirugía:</strong>
+              <%= @gato.fecha_operacion %>
+            </p>
+
 
             <p>
               <strong>Hora ingreso:</strong>
@@ -141,7 +147,7 @@
               <%else%>
                 No ingresado
               <%end%>
-            <p>
+            </p>
 
             <p>
               <strong>Hora alta medica:</strong>
@@ -150,17 +156,17 @@
               <%else%>
                 No ingresado
               <%end%>
-            <p>
+            </p>
 
             <p>
               <strong>Hallazgos:</strong>
               <%= @gato.hallazgos %>
-            <p>
+            </p>
 
             <p>
               <strong>Complicaciones:</strong>
               <%= @gato.complicaciones %>
-            <p>
+            </p>
 
             <p>
               <strong>Receta:</strong>
@@ -168,8 +174,8 @@
                   <ul>
                     <%@gato.medicamentos.each do |medicamento|%>
                         <li>
-                          <%= medicamento.nombre%>,<%= medicamento.cantidad%>,<%= medicamento.unidad%>
-                          <%= medicamento.frecuencia%>
+                          <strong><%= medicamento.nombre%></strong><br>
+                          Dar <%= medicamento.cantidad %>[<%= medicamento.unidad%>], cada <%= medicamento.cada%>[Hrs], durante <%= medicamento.durante %> <%= medicamento.durante_unidad%><br>
                         </li>
                     <%end%>
                   </ul>
@@ -183,7 +189,10 @@
               <strong>Ficha PDF:</strong>
               <%= link_to "Get PDF", gato_path(format: :pdf) %><br>
               <strong>Receta PDF:</strong>
-              <% link_to "Get PDF", gato_path(format: :pdf) %>
+              <%= link_to "Get PDF", gato_receta_path(@gato,format: :pdf) %><br>
+              <strong>Certificicado esterilización:</strong>
+              <%= link_to "Get PDF", gato_certificado_path(@gato,format: :pdf) %>
+
             </p>
 
             <%= link_to edit_gato_path(@gato) do %>

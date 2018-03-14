@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Certificado</title>
+  <%= wicked_pdf_stylesheet_link_tag "application" -%>
+  <h3><%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %>  <strong>Certificado de esterilización de perro<strong></h3>
+</head>
+<body>
+<br>
+
+<p>
+    <strong>Número de folio:</strong>
+    23<%= @perro.id %><br>
+</p>
+
+<h4>Informacion del Perro</h4>
+
+<p>
+    <strong>Nombre:</strong>
+    <%= @perro.nombre %>
+</p>
+
+<p>
+    <strong>Sexo:</strong>
+    <%= @perro.sexo %>
+</p>
+
+<p>
+    <strong>Fecha de cirugía:</strong>
+    <%= @perro.fecha_operacion %>
+</p>
+
+<p>
+    <strong>Tipo de cirugía:</strong>
+    <%= @perro.tipo_cirujia%>
+</p>
+
+<p>
+    <strong>Raza:</strong>
+    <% if @perro.raza == nil %>
+        No especificada
+    <%else%>
+        <%= @perro.raza %>
+    <%end%>
+</p>
+
+<p>
+    <strong>Numero chip:</strong>
+    <% if @perro.numero_chip == nil %>
+        No tiene chip
+    <%else%>
+        <%= @perro.numero_chip %>
+    <%end%>
+</p>
+
+
+<h4> Informacion del Propietario</h4>
+
+<p>
+    <strong>Propietario:</strong>
+    <%= @perro.ficha.nombre %><br>
+</p>
+
+<p>
+    <strong>Rut:</strong>
+    <%= @perro.ficha.rut %><br>
+</p>
+
+<p>
+    <strong>Telefono:</strong>
+    <%= @perro.ficha.telefono %><br>
+</p>
+
+<p>
+    <strong>Dirección:</strong>
+    <%= @perro.ficha.direccion %>,<%= @perro.ficha.comuna %><br>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer class="center">
+  Firma rsepresentante Stuka.....................................
+</footer>
+</body>
+</html>
