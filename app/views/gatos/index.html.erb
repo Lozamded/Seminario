@@ -48,7 +48,11 @@
       <% @gatos.each do |gato| %>
         <tr>
           <td><%= link_to  gato.nombre, gato, :remote=>true %></td>
+<<<<<<< HEAD
           <td><%= gato.edad %>[<%= gato.formato_edad %>]</td>
+=======
+          <td><%= gato.edad %></td>
+>>>>>>> e57b5d8480672d94c65294a24345dc2269664d57
           <td><%= gato.sexo %></td>
           <td><%= gato.raza %></td>
           <td><%= gato.tipo %></td>
@@ -110,6 +114,10 @@
   </table>
 </div>
 
+<br>
+
+
+<strong>Total gatos:</strong><%= Gato.count%><br>
 <br>
 
 

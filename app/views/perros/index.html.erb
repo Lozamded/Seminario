@@ -48,7 +48,11 @@
       <% @perros.each do |perro| %>
         <tr>
           <td><%= link_to perro.nombre ,perro , :remote=>true %></td>
+<<<<<<< HEAD
           <td><%= perro.edad %>[<%= perro.formato_edad %>]</td>
+=======
+          <td><%= perro.edad %></td>
+>>>>>>> e57b5d8480672d94c65294a24345dc2269664d57
           <td><%= perro.sexo %></td>
           <td><%= perro.raza %></td>
           <td><%= perro.tipo%></td>
