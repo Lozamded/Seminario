@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <title>Ficha clinica</title>
   <%= wicked_pdf_stylesheet_link_tag "application" -%>
-  <h3><%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %>  <strong>Consentimiento<strong></h3>
+  <div><span style="float:right"><%= image_tag wicked_pdf_asset_base64('logo compassion  pequeño') %></span><%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %></div>
+  <h3><%= image_tag wicked_pdf_asset_base64('Logo Seminario pequeño') %> <strong>Consentimiento<strong></h3>
 </head>
 <br>
 <body>
@@ -12,9 +13,10 @@
       <strong>Número de folio:</strong>
       12<%= @ficha.id %>
   </p>
+  <!--
   <p align="justify">
 Este documento está destinado a informarles de la anestesia, de sus ventajas y de sus riesgos. Rogamos que lo lean atentamente, para dar su consentimiento firmado y proceder a la anestesia que les será propuesta.  Podrán a su vez exponer cualquier duda sobre este procedimiento al clínico que les atienda.
-<br><br>  
+<br><br>
 <strong>¿Porque debe ser anestesiado su animal?</strong><br>
 Además de las intervenciones quirúrgicas, hay una serie de procedimientos en medicina veterinaria que necesitan una tranquilización o una anestesia general: es necesario en procedimientos en los que se necesita una inmovilidad del mismo durante un tiempo determinado, también en procedimientos que no serían tolerados por el animal si estuviese despierto o intranquilo.
 <br><br>
@@ -29,15 +31,15 @@ Todo acto médico, incluso conducido con competencia y respetando los conocimien
 <br><br>
 <strong>Posquirúrgico</strong><br>
 Después de la cirugía su animal puede presentar zonas rasuradas, generalmente en las extremidades. Esto lo realizamos para permitir la visualización y el acceso limpio a las venas por las cuales se inyectara el fármaco anestésico o una región más amplia en otras zonas en las cuales se inyectan anestésicos locales.  Un tubo se introduce generalmente en la tráquea para facilitar la respiración y administración de los vapores anestésicos.  Esto puede dar lugar a una tos temporal algunos días después de la anestesia.
-Si su animal vuelve a casa el mismo día de la intervención es recomendable mantenerle en un sitio en reposo, en silencio y en una zona templada.  Por regla general el paciente puede comenzar a ingerir líquidos (agua) y comida en pequeñas cantidades, que se suspenderán en caso de cualquier anomalía  
-<br>  
+Si su animal vuelve a casa el mismo día de la intervención es recomendable mantenerle en un sitio en reposo, en silencio y en una zona templada.  Por regla general el paciente puede comenzar a ingerir líquidos (agua) y comida en pequeñas cantidades, que se suspenderán en caso de cualquier anomalía
+<br>
 <br>
 <br>
 </p>
-
+-->
 <p align="justify">
 <h4>DECLARACIÓN DE CONSENTIMIENTO INFORMADO</h4>
-A través del siguiente documento, yo <strong><%= @ficha.nombre %></strong>, Cedula de indentidad: <strong><%= @ficha.rut %></strong>,con domicilio en <strong><%= @ficha.direccion %>,<%= @ficha.comuna%> </strong>. 
+A través del siguiente documento, yo <strong><%= @ficha.nombre %></strong>, Cedula de indentidad: <strong><%= @ficha.rut %></strong>,con domicilio en <strong><%= @ficha.direccion %>,<%= @ficha.comuna%> </strong>.
 <br>Autorizo a que los animales que represento:
   <% if @ficha.perros.count > 0 %>
     <%if  @ficha.perros.count == 1%>
@@ -77,7 +79,7 @@ Con fecha de <%= Time.now.strftime("%d-%m-%Y") %>, autorizo voluntariamente al M
 <h4>DECLARACIÓN DE CUIDADOS POST OPERATORIOS</h4>
 <li>Declaro entender las indicaciones de cuidados entregados en la pauta de manejo post quirúrgico.</li>
 <li>Me comprometo a seguir las indicaciones y asumir bajo mi responsabilidad el adecuado cuidado de mi mascota.</li>
-<li>Entiendo las posibles complicaciones post quirúrgicas informadas por el médico veterinario. Comprometiendome en dar aviso al médico veterinario con la finalidad de cumplir con los tratamientos y controles por este indicados</li> 
+<li>Entiendo las posibles complicaciones post quirúrgicas informadas por el médico veterinario. Comprometiendome en dar aviso al médico veterinario con la finalidad de cumplir con los tratamientos y controles por este indicados</li>
   <br>
   </p>
 </body>

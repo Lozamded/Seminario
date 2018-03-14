@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title>Receta </title>
   <%= wicked_pdf_stylesheet_link_tag "application" -%>
-  <%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %><%= image_tag wicked_pdf_asset_base64('logo compassion') %><%= image_tag wicked_pdf_asset_base64('Logo Seminario') %>
-  <h3> <strong>Receta de perro<strong></h3>
+  <div><span style="float:right"><%= image_tag wicked_pdf_asset_base64('logo compassion  pequeño') %></span><%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %></div>
+  <h3><%= image_tag wicked_pdf_asset_base64('Logo Seminario pequeño') %> <strong>Receta de perro<strong></h3>
 </head>
 
 <body>
@@ -87,6 +87,12 @@
 
 </body>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <footer class="center">
   Firma................... <%="         "%>Timbre..................
 </footer>

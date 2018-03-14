@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <title>Certificado</title>
   <%= wicked_pdf_stylesheet_link_tag "application" -%>
-  <h3><%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %>  <strong>Certificado de esterilización de perro<strong></h3>
+  <div><span style="float:right"><%= image_tag wicked_pdf_asset_base64('logo compassion  pequeño') %></span><%= image_tag wicked_pdf_asset_base64('LOGOS STUKA PEQUEÑO') %></div>
+  <h3><%= image_tag wicked_pdf_asset_base64('Logo Seminario pequeño') %> <strong>Certificado de esterilización de perro<strong></h3>
 </head>
 <body>
 <br>
@@ -77,8 +78,6 @@
     <%= @perro.ficha.direccion %>,<%= @perro.ficha.comuna %><br>
 </p>
 
-<br>
-<br>
 <br>
 <br>
 <br>
